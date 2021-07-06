@@ -19,21 +19,20 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Author implements Serializable{
+public class InstitutionalAuthor implements Serializable{
 	private static final long serialVersionUID = 1L;
+
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
+	private String jurisdiction;
 	private String name;
-	private String fechaNyM;
-	private String biography;
 	
 	@ManyToMany
 	private Set<Text> text;
 	
-	public Author (String name, String fechaNyM) {
+	public InstitutionalAuthor(String name) {
 		this.name = name;
-		this.fechaNyM = fechaNyM;
 	}
 }

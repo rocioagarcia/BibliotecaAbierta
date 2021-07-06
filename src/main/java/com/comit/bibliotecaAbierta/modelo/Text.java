@@ -28,10 +28,18 @@ public class Text implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	@ManyToMany
-	private Set<Author> author;
+	private Set<PersonalAuthor> personalAuthor;
+	@ManyToMany
+	private Set<InstitutionalAuthor> institutionalAuthor;
+	@ManyToMany
+	private Set<EventAuthor> eventAuthor;
 	private String title;
-	private String edition;
+	private String paralelTitle;
+	private String alternativeTitle;
+	private String subtitle;
+	private String variantTitle;
 	private String dgm;
+	private String edition;
 	@ManyToMany
 	private Set<Editor> editor;
 	private String publicationPlace;
@@ -42,13 +50,10 @@ public class Text implements Serializable{
 	@ManyToMany
 	private Set<Subject> subject;
 	@OneToMany
-	private Review review;
-	@ManyToMany
-	private List <TextList> textList;
+	private Set <Review> review;
 	private String downloable;
 	
-	public Text (Set<Author> author, String title, String edition, String publicationDate, int extention, String downloable) {
-		this.author = author;
+	public Text (String title, String edition, String publicationDate, int extention, String downloable) {
 		this.title = title;
 		this.edition = edition;
 		this.publicationDate = publicationDate;
