@@ -3,6 +3,7 @@ package com.comit.bibliotecaAbierta.modelo;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@DiscriminatorValue("INSTITUTIONAL_AUTHOR")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,5 +33,4 @@ public class InstitutionalAuthor implements Serializable{
 	
 	@ManyToMany
 	private Set<Text> text;
-	
 }

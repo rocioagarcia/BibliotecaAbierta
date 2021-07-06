@@ -43,7 +43,7 @@ public class Text implements Serializable{
 	private Set<Editor> editor;
 	private String publicationPlace;
 	private String publicationDate;
-	private int extention;
+	private Integer  extention;
 	private String details;
 	private String notes;
 	@ManyToMany

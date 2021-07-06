@@ -33,7 +33,7 @@ public class User implements Serializable {
 	protected Set<TextList> textList;
 	@OneToMany
 	protected Set<Review> review;
-	
+	 
 
 	
 }
