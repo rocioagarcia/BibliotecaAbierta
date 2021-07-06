@@ -1,7 +1,6 @@
 package com.comit.bibliotecaAbierta.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -53,11 +52,4 @@ public class Text implements Serializable{
 	private Set <Review> review;
 	private String downloable;
 	
-	public Text (String title, String edition, String publicationDate, int extention, String downloable) {
-		this.title = title;
-		this.edition = edition;
-		this.publicationDate = publicationDate;
-		this.extention = extention;
-		this.downloable = downloable;
-	}
 }

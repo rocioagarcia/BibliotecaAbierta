@@ -32,7 +32,4 @@ public class InstitutionalAuthor implements Serializable{
 	@ManyToMany
 	private Set<Text> text;
 	
-	public InstitutionalAuthor(String name) {
-		this.name = name;
-	}
 }

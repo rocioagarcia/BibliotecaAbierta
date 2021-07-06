@@ -30,7 +30,4 @@ public class Subject implements Serializable{
 	@ManyToMany
 	private Set<Text> text;
 	
-	public Subject (String subject) {
-		this.subject = subject;
-	}
 }

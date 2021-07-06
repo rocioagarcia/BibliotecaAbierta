@@ -31,8 +31,4 @@ public class Review implements Serializable {
 	@ManyToOne
 	private Text text;
 	
-	public Review (User user, Text text) {
-		this.user = user;
-		this.text = text;
-	}
 }

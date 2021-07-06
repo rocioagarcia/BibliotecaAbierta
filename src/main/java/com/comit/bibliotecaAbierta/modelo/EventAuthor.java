@@ -33,8 +33,4 @@ public class EventAuthor implements Serializable{
 	@ManyToMany
 	private Set<Text> text;
 	
-	public EventAuthor(String name) {
-		this.name = name;
-		
-	}
 }

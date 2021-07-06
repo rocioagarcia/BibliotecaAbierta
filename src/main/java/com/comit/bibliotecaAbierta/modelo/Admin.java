@@ -14,11 +14,5 @@ import lombok.ToString;
 @ToString
 public class Admin extends User{
 	private static final long serialVersionUID = 1L;
-	
-	public Admin(String username, String email) {
-		super(username, email);
-	}
-
-	
 
 }

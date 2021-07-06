@@ -33,8 +33,4 @@ public class PersonalAuthor implements Serializable{
 	@ManyToMany
 	private Set<Text> text;
 	
-	public PersonalAuthor (String name, String fechaNyM) {
-		this.name = name;
-		this.fechaNyM = fechaNyM;
-	}
 }

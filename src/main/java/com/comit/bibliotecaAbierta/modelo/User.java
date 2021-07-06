@@ -34,10 +34,6 @@ public class User implements Serializable {
 	@OneToMany
 	protected Set<Review> review;
 	
-	public User (String username, String email) {
-		this.username = username;
-		this.email = email;
-	}
 
 	
 }

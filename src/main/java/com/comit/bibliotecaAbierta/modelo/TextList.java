@@ -30,9 +30,5 @@ public class TextList implements Serializable{
 	@ManyToMany	
 	private Set <Text> texts;
 
-	public TextList(String name, String description) {
-		this.name = name;
-		this.description = description;
-	}
 	
 }

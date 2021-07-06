@@ -30,7 +30,4 @@ public class Editor implements Serializable{
 	@ManyToMany
 	private Set<Text> text;
 	
-	public Editor(String name) {
-		this.name= name;
-	}
 }
