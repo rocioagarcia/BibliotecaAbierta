@@ -1,5 +1,6 @@
 package com.comit.bibliotecaAbierta.modelo;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
+@DiscriminatorValue("ADMINISTRADOR")
 @Getter
 @Setter
 @NoArgsConstructor

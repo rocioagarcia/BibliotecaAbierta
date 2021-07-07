@@ -28,8 +28,7 @@ public class EventAuthor implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-	private int number;
-	private String date;
+	private String number;
 	private String place;
 	
 	@ManyToMany
