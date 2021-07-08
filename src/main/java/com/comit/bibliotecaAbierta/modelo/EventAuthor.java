@@ -32,5 +32,5 @@ public class EventAuthor implements Serializable{
 	private String place;
 	
 	@ManyToMany
-	private Text text;
+	private Set<Text> text;
 }

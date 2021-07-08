@@ -28,6 +28,6 @@ public class Editor implements Serializable{
 	private String name;
 	
 	@ManyToMany
-	private Text text;
+	private Set<Text> text;
 	
 }

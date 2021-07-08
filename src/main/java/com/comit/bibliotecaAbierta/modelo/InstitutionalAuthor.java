@@ -32,5 +32,5 @@ public class InstitutionalAuthor implements Serializable{
 	private String name;
 	
 	@ManyToMany
-	private Text text;
+	private Set<Text> text;
 }

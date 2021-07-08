@@ -28,7 +28,7 @@ public class TextList implements Serializable{
 	private String name;
 	private String description;
 	@ManyToMany	
-	private Text texts;
+	private Set<Text> texts;
 
 	
 }

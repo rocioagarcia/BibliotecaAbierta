@@ -7,8 +7,15 @@
 	background-color: #ADE9D7;
 	color: #FFFFFF;
 	font-size: 10rem !important;
-	padding: 2%;
-	font-family: 'Bowlby One SC', cursive;
+	font-family: 'Bowlby One', cursive;
+	height: 6rem;
+	overflow: auto;
+	padding: 0.5rem;
+}
+
+.logo-image {
+	float: left;
+	height: 90%;
 }
 
 .container-ba {
@@ -25,7 +32,6 @@
 
 .navbar {
 	background-color: #99CFBE !important;
-	font-family: 'Bowlby One SC', cursive !important;
 }
 
 /*PARTECITAS*/
@@ -43,10 +49,10 @@
 	margin-left: 6px;
 }
 
-.btn-pink {
+.btn-color {
 	background-color: #80678B;
 	border-color: purple;
-	color: #FFFFFF;
+	color: #FFFFFF !important;
 }
 
 .btn-pink:hover, .btn-pink.active.focus, .btn-pink.active:focus,
@@ -64,19 +70,20 @@
 .card-ba {
 	background: #E9F9F4 !important;
 	color: #FFFFFF !important;
-	aspect-ratio: 1 / 1;
-	width: 11rem;
+	height: 10rem;
+	width: 9rem;
+	padding: 1%;
 }
 
 .card-letters {
 	color: #80678B !important;
-	font-family: 'Bowlby One SC', cursive;
+	font-family: 'Bowlby One', cursive;
+	font-size: 0.7rem;
 }
 
 .card-icons {
 	padding: 2%;
 	color: #4D6960 !important;
-	
 }
 
 /*CSS DE DETALLES ESPECIFICOS*/
@@ -86,9 +93,10 @@
 }
 
 .funt {
-	font-family: 'Bowlby One SC', cursive;
+	font-family: 'Bowlby One', cursive;
 }
 
-.font-color-dropdown{
-	color: #FFFFFF;
+.font-color-dropdown {
+	background-color: #80678B !important;
+	color: #FFFFFF !important;
 }

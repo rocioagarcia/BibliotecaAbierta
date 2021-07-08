@@ -30,9 +30,9 @@ public class User implements Serializable {
 	protected String biography;
 	protected String email;
 	@OneToMany	
-	protected TextList textList;
+	protected Set<TextList> textList;
 	@OneToMany
-	protected Review review;
+	protected Set<Review> review;
 	
 	
 	 
