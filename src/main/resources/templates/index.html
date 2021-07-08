@@ -2,88 +2,124 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-            <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-        
-            <!-- JavaScript -->
-    <script defer src="script.js"></script>
-    
-            <!-- CSS -->
-    	<link th:href="@{style.css}" rel="stylesheet" />
-    
-            <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
-    <title>Biblioteca Abierta</title>
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script defer
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+<!-- JavaScript -->
+<script defer src="script.js"></script>
+
+<!-- CSS -->
+<link th:href="@{/styles/style.css}" rel="stylesheet" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
+	rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://use.fontawesome.com/2740052d05.js"></script>
+
+<!-- Title -->
+<title>Biblioteca Abierta</title>
+
 </head>
 
-<body class= "body">
-    <div class="title-ba text-stroke">
-        <h1>BIBLIOTECA ABIERTA</h1>   
-    </div>
-    
- 			<!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active btn btn-primary btn-pink funt btn-navbar" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary btn-pink funt btn-navbar" href="#">Catalogo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-primary btn-pink funt btn-navbar" href="#">Quienes somos</a>
-                    </li>
-                </ul>
-                <div class="nav-item dropdown me-2 ms-auto ">
-                    <a class="nav-link dropdown-toggle no-blue btn btn-primary btn-pink funt" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Perfil
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-                    <!-- MAIN -->
-    <main class="container-fluid container-ba">
-        <div class="p-4 text-center">
-        <h2 id="title">¡Bienvenido/a a Biblioteca Abierta!</h1>
-            <p class= "funt text-stroke">Todos los textos de dominio público que puedas querer.</p>
-            <p class= "funt text-stroke">Busca. Descarga. Gestiona.</p>
-        </div>
-        
-                        <!-- SEARCH BAR -->
-        <div>
-            <form class="d-flex search-bar">
-                <input class="form-control me-2" type="search" placeholder="Buscar por autor, titulo o materia" aria-label="Search">
-                <button class="btn btn-primary btn-pink funt" type="submit" id="button">Buscar</button>
-              </form>
-        </div>
-    </main>
+<body class="body">
+
+	<!-- TITULO DE LA PAGINA -->
+	<div class="title-ba text-stroke">
+		<h1>BIBLIOTECA ABIERTA</h1>
+	</div>
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<!-- <a class="navbar-brand" href="#">Navbar</a> -->
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a
+						class="nav-link active btn btn-primary btn-pink funt btn-navbar"
+						aria-current="page" href="#">Home</a></li>
+					<li class="nav-item"><a
+						class="nav-link btn btn-primary btn-pink funt btn-navbar" href="#">Catalogo</a>
+					</li>
+					<li class="nav-item"><a
+						class="nav-link btn btn-primary btn-pink funt btn-navbar" href="#">Quienes
+							somos</a></li>
+				</ul>
+				<div class="nav-item dropdown me-2 ms-auto">
+					<a
+						class="nav-link dropdown-toggle no-blue btn btn-primary btn-pink funt"
+						href="#" id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> Perfil </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<li><a class="dropdown-item" href="#">Mi perfil</a></li>
+						<li><a class="dropdown-item" href="#">Mis listas</a></li>
+						<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- MAIN -->
+	<main class="container-fluid container-ba">
+		<div class="p-4 text-center">
+			<h2 id="title">
+				¡Bienvenido/a a Biblioteca Abierta!
+				</h1>
+				<div class="mt-5">
+					<p class="text-stroke">Todos los textos de dominio público que
+						puedas querer.</p>
+					<p class="text-stroke">Busca. Descarga. Gestiona.</p>
+				</div>
+		</div>
+
+		<!-- SEARCH BAR -->
+		<div>
+			<form class="d-flex search-bar">
+				<input class="form-control me-2" type="search"
+					placeholder="Buscar por autor, titulo o materia"
+					aria-label="Search">
+				<button class="btn btn-primary btn-pink funt" type="submit"
+					id="button">Buscar</button>
+			</form>
+		</div>
+
+		<!-- CARDS -->
+		<div class="card card-ba mt-2">
+			<div class="card-body text-center">
+				<p class="card-text card-letters">Crea tu perfil</p>
+				<i class="fa fa-user-circle-o fa-4x card-icons align-self-center"
+					aria-hidden="true"></i>
+			</div>
+	</main>
+
+	<!-- FOOTER -->
+	<div class="footer-ba">
+		<p>Footer y esas cosas</p>
+	</div>
 </body>
 
 </html>

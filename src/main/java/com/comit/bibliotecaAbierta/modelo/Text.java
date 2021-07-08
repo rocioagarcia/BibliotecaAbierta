@@ -27,11 +27,11 @@ public class Text implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	@ManyToMany
-	private Set<PersonalAuthor> personalAuthor;
+	private PersonalAuthor personalAuthor;
 	@ManyToMany
-	private Set<InstitutionalAuthor> institutionalAuthor;
+	private InstitutionalAuthor institutionalAuthor;
 	@ManyToMany
-	private Set<EventAuthor> eventAuthor;
+	private EventAuthor eventAuthor;
 	private String title;
 	private String paralelTitle;
 	private String alternativeTitle;
@@ -40,16 +40,22 @@ public class Text implements Serializable{
 	private String dgm;
 	private String edition;
 	@ManyToMany
-	private Set<Editor> editor;
-	private String publicationPlace;
+	private Editor editor;
 	private String publicationDate;
-	private Integer  extention;
+	private Integer extention;
 	private String details;
 	private String notes;
 	@ManyToMany
-	private Set<Subject> subject;
+	private Subject subject;
 	@OneToMany
-	private Set <Review> review;
-	private String downloable;
+	private Review review;
+	private String file;
 	
-}
+	public Text(String title, String edition, String publicationDate, Integer extention) {
+		this.title = title;
+		this.edition = edition;
+		this.publicationDate = publicationDate;
+		this.extention = extention;
+	}
+ }
+ 

@@ -28,6 +28,6 @@ public class Subject implements Serializable{
 	private String subject;
 	
 	@ManyToMany
-	private Set<Text> text;
+	private Text text;
 	
 }

@@ -34,6 +34,6 @@ public class PersonalAuthor implements Serializable{
 	private String biography;
 	
 	@ManyToMany
-	private Set<Text> text;
+	private Text text;
 	
 }

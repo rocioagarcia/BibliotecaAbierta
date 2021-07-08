@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@DiscriminatorValue("ADMINISTRADOR")
+@DiscriminatorValue("ADMIN")
 @Getter
 @Setter
 @NoArgsConstructor
