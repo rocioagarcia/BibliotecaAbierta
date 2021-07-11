@@ -3,13 +3,21 @@
 	color: #FFFFFF;
 }
 
+.sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 2;
+}
+
 .title-ba {
 	background-color: #ADE9D7;
 	color: #FFFFFF;
 	font-size: 10rem !important;
 	font-family: 'Bowlby One', cursive;
 	height: 6rem;
-	overflow: auto;
+	width: 100%;
+	overflow: hidden;
 	padding: 0.5rem;
 }
 
@@ -18,9 +26,19 @@
 	height: 90%;
 }
 
+.main-style {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .container-ba {
+	padding-top: 15rem !important;
 	padding: 5%;
 	background-color: #ADE9D7;
+}
+
+.form-container {
+	padding: 0.5%;
+	background-color: #E9F9F4;
 }
 
 .footer-ba {
@@ -32,6 +50,7 @@
 
 .navbar {
 	background-color: #99CFBE !important;
+	font-family: 'Montserrat', sans-serif;
 }
 
 /*PARTECITAS*/
@@ -45,6 +64,10 @@
 }
 
 /*BOTONES*/
+.btn-search {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .btn-navbar {
 	margin-left: 6px;
 }
@@ -55,7 +78,7 @@
 	color: #FFFFFF !important;
 }
 
-.btn-pink:hover, .btn-pink.active.focus, .btn-pink.active:focus,
+.btn-color:hover, .btn-pink.active.focus, .btn-pink.active:focus,
 	.btn-pink.focus, .btn-pink.focus:active, .btn-pink:active:focus,
 	.btn-pink:focus, .btn-pink.active {
 	background-color: plum;
@@ -68,7 +91,7 @@
 
 /* CARDS DEL INDEX */
 .card-ba {
-	background: #E9F9F4 !important;
+	background-color: #E9F9F4 !important;
 	color: #FFFFFF !important;
 	height: 10rem;
 	width: 9rem;
@@ -86,6 +109,8 @@
 	color: #4D6960 !important;
 }
 
+/*FORMS*/
+
 /*CSS DE DETALLES ESPECIFICOS*/
 .text-stroke {
 	-webkit-text-stroke-width: 1px;
@@ -100,3 +125,4 @@
 	background-color: #80678B !important;
 	color: #FFFFFF !important;
 }
+

@@ -12,4 +12,10 @@ public class MainController {
 	public String index() {
 		return "index";
 	}
-}
+	
+	@GetMapping("/subir-texto")
+		public String subirTexto() {
+			return "uploadText";
+		}
+	
+	}
