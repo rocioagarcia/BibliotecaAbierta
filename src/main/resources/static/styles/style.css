@@ -74,7 +74,6 @@
 
 .btn-color {
 	background-color: #80678B;
-	border-color: purple;
 	color: #FFFFFF !important;
 }
 
@@ -85,8 +84,8 @@
 	border-color: purple;
 }
 
-.no-blue, .no-blue:hover {
-	color: black !important;
+.btn-submit {
+	background-color: green;
 }
 
 /* CARDS DEL INDEX */
@@ -120,9 +119,3 @@
 .funt {
 	font-family: 'Bowlby One', cursive;
 }
-
-.font-color-dropdown {
-	background-color: #80678B !important;
-	color: #FFFFFF !important;
-}
-

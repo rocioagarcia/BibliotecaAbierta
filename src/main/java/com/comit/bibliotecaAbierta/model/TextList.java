@@ -1,4 +1,4 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -19,15 +19,16 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Subject implements Serializable{
+public class TextList implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)	
 	private Long id;
-	private String subject;
-	
-	@ManyToMany
-	private Set<Text> text;
+	private String name;
+	private String description;
+	@ManyToMany	
+	private Set<Text> texts;
+
 	
 }

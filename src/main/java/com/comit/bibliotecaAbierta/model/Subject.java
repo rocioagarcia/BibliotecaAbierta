@@ -1,9 +1,8 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,21 +15,19 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@DiscriminatorValue("EVENT_AUTHOR")
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class EventAuthor implements Serializable{
+public class Subject implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)	
 	private Long id;
-	private String name;
-	private String number;
-	private String place;
+	private String subject;
 	
 	@ManyToMany
 	private Set<Text> text;
+	
 }

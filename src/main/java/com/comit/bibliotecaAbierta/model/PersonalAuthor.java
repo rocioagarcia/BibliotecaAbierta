@@ -1,4 +1,4 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -21,12 +21,9 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class PersonalAuthor implements Serializable{
+public class PersonalAuthor extends Author implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long id;
 	private String name;
 	private String lastName;
 	private String fechaNyM;

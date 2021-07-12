@@ -81,7 +81,7 @@
 							<li><a class="dropdown-item " href="/miperfil">Mi perfil</a></li>
 							<li><a class="dropdown-item" href="/mislistas">Mis
 									listas</a></li>
-							<li><a class="dropdown-item" href="/subir-texto">Subir
+							<li><a class="dropdown-item" href="/text/subir">Subir
 									texto</a></li>
 							<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
 						</ul>
@@ -96,28 +96,34 @@
 
 		<!-- FORM -->
 		<div>
-			<form class="row form-container"method:"post" th:object:${}>
+			<form class="row form-container" th:action="@{/text/crear}"
+				method="post" th:object=${text}>
 				<h2>Subir un nuevo texto.</h2>
 				<hr class="mt-4">
 				<div class="row">
 
-					<!-- AUTOR -->
-					<div class="col-4 mt-3">
-						<label for="autor" class="form-label">Autor</label> <select
-							id="autor" class="form-select col-4"
-							aria-label="Default select example">
-							<option th:selected>Open this select menu</option>
+					<!-- AUTOR 
+					<h3>Autor</h3>
+					<div class="col-5 mt-3">
+						<label for="author" class="form-label">Autor</label> <select
+							multiple id="author" name="author"
+							th:field="*{author}" class="form-select col-4"
+							aria-label="Default select example" placeholder="Autor">
 							<option th:value="1">One</option>
 							<option th:value="2">Two</option>
 							<option th:value="3">Three</option>
 						</select>
+						<div id="authorIndications" class="form-text">Para
+							seleccionar varios temas, mantenga apretada la tecla ctrl
+							mientras hace click en los temas que desea elegir</div>
 					</div>
-					<div class="col-6 mt-3">
+					<div class="col-5 mt-3">
 						<label for="newAuthor" class="form-label">Si necesita
 							ingresar autores nuevos, selecione: </label>
 						<button id="crearNuevoAutor"
 							class="btn btn-outline-secondary btn-color dropdown-toggle"
-							type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo de autor</button>
+							type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo
+							de autor</button>
 						<ul class="dropdown-menu dropdown-menu-end">
 							<li><a class="dropdown-item" href="/subir-autor-personal">Personal</a></li>
 							<li><a class="dropdown-item"
@@ -127,87 +133,103 @@
 									reuniones, jornadas, etc.</a></li>
 						</ul>
 					</div>
+					-->
 					<hr class="mt-4">
 
 					<!-- TITLE -->
+					<h3>Títulos</h3>
 					<div class="col-4 mt-3">
 						<label for="title" class="form-label">Titulo propiamente
 							dicho</label> <input type="text" class="form-control" id="title"
-							placeholder="Titulo propiamente dicho" th:field:*{title} />
+							name="title" placeholder="Titulo propiamente dicho"
+							th:field="*{title}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="paralelTitle" class="form-label">Titulo
 							paralelo</label> <input type="text" class="form-control"
-							id="paralelTitle" placeholder="Titulo paralelo" th:field:*{paralelTitle} />
+							id="paralelTitle" name="paralelTitle"
+							placeholder="Titulo paralelo" th:field="*{paralelTitle}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="alternativeTitle" class="form-label">Titulo
 							alternativo</label> <input type="text" class="form-control"
-							id="alternativeTitle" placeholder="Titulo alternativo" th:field:*{alternativeTitle} />
+							id="alternativeTitle" name="alternativeTitle"
+							placeholder="Titulo alternativo" th:field="*{alternativeTitle}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="subtitulo" class="form-label">Otras titulos</label> <input
-							type="text" class="form-control" id="subtitulo"
-							placeholder="Otros titulos" th:field:*{subtitle} />
+							type="text" class="form-control" id="subtitule" name="subtitle"
+							placeholder="Otros titulos" th:field="*{subtitle}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="variantTitle" class="form-label">Variante del
-							titulo</label> <input type="text" class="form-control"
-							id="tituloAlternativo" placeholder="Titulo alternativo" th:field:*{variantTitle} />
+							titulo</label> <input type="text" class="form-control" id="variantTitle"
+							name="variantTitle" placeholder="Variante del título"
+							th:field="*{variantTitle}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="dgm" class="form-label">D.G.M.</label> <input
-							type="text" class="form-control" id="dgm" placeholder="D.G.M." th:field:*{dgm} />
+							type="text" class="form-control" id="dgm" name="dgm"
+							placeholder="D.G.M." th:field="*{dgm}" />
 					</div>
 					<hr class="mt-4">
 
 					<!-- EDICION -->
+					<h3>Edición y publicación</h3>
 					<div class="col-4 mt-3">
 						<label for="edicion" class="form-label">Edicion</label> <input
-							type="text" class="form-control" id="edicion"
-							placeholder="Edicion" th:field:*{edition} />
+							type="text" class="form-control" id="edition" name="edition"
+							placeholder="Edicion" th:field="*{edition}" />
 					</div>
+					<!-- 
 					<div class="col-4 mt-3">
 						<label for="editor" class="form-label">Editor</label> <input
-							type="text" class="form-control" id="editor" placeholder="Editor" th:field:*{editor} />
+							type="text" class="form-control" id="editor" name="editor"
+							placeholder="Editor" th:field="*{editor}" />
 					</div>
+					 -->
 					<div class="col-4 mt-3">
 						<label for="publicationDate" class="form-label">Año de
 							publicación</label> <input type="text" class="form-control"
-							id="publicationDate" placeholder="Año de publicación" th:field:*{publicationDate} />
+							id="publicationDate" name="publicationDate"
+							placeholder="Año de publicación" th:field="*{publicationDate}" />
 					</div>
 					<hr class="mt-4">
 
 					<!-- EXTENTION, DETAILS -->
+					<h3>Extensión y detalles</h3>
 					<div class="col-4 mt-3">
 						<label for="extention" class="form-label">Extensión</label> <input
 							type="number" class="form-control" id="extention"
-							placeholder="Cantidad de páginas o volumenes" th:field:*{extention} />
+							name="extention" placeholder="Cantidad de páginas o volumenes"
+							th:field="*{extention}" />
 					</div>
 					<div class="col-4 mt-3">
 						<label for="details" class="form-label">Detalles y
 							caracteristicas</label> <input type="text" class="form-control"
-							id="details" placeholder="Detalles y caracteristicas" th:field:*{details} />
+							id="details" name="details"
+							placeholder="Detalles y caracteristicas" th:field="*{details}" />
 					</div>
 					<hr class="mt-4">
 
 					<!-- NOTES -->
+					<h3>Notas</h3>
 					<div class="col-4 mt-3">
 						<label for="notes" class="form-label">Notas</label>
-						<textarea type="text" class="form-control" id="notes"
-							placeholder="Notas"th:field:*{notes}></textarea>
+						<textarea type="text" class="form-control" id="notes" name="notes"
+							placeholder="Notas" th:field="*{notes}"></textarea>
 						<div id="notesIndications" class="form-text">Ingrese todas
 							las notas que interprete necesarias, separadas por un punto y a
 							parte.</div>
 					</div>
 					<hr class="mt-4">
 
-					<!-- SUBJECTS -->
+					<!-- SUBJECTS
+					<h3>Temas</h3>
 					<div class="col-4 mt-3">
 						<label for="subjects" class="form-label">Temas</label> <select
-							id="subjects" multiple class="form-select"
-							aria-label="Default select example"th:field:*{subjects}>
-							<option th:selected>Lista de temas</option>
+							id="subjects" name="subjects" multiple class="form-select"
+							aria-label="Default select example" th:field="*{subjects}">
 							<option th:value="1">One</option>
 							<option th:value="2">Two</option>
 							<option th:value="3">Three</option>
@@ -222,7 +244,16 @@
 							type="text" class="form-control" id="newSubjects"
 							placeholder="Ej: BIOLOGIA, FISICA, QUIMICA" th:field:*{subjects} />
 					</div>
+					-->
 					<hr class="mt-4">
+					<div class="mb-3">
+						<label for="formFile" class="form-label">Seleccione el archivo</label> <input class="form-control" type="file"
+							id="file" name="file" th:field="*{file}">
+					</div>
+				</div>
+				<hr class="mt-4">
+				<div>
+					<button class="btn-color" type="submit">Enviar</button>
 				</div>
 			</form>
 		</div>

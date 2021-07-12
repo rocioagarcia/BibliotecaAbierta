@@ -1,4 +1,4 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+import com.comit.bibliotecaAbierta.model.Author;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,11 +29,7 @@ public class Text implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	@ManyToMany
-	private Set<PersonalAuthor> personalAuthor;
-	@ManyToMany
-	private Set<InstitutionalAuthor> institutionalAuthor;
-	@ManyToMany
-	private Set<EventAuthor> eventAuthor;
+	private Set<Author> author;
 	private String title;
 	private String paralelTitle;
 	private String alternativeTitle;
@@ -46,7 +44,7 @@ public class Text implements Serializable{
 	private String details;
 	private String notes;
 	@ManyToMany
-	private Set<Subject> subject;
+	private Set<Subject> subjects;
 	@OneToMany
 	private Set<Review> review;
 	private String file;

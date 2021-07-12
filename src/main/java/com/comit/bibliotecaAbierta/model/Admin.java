@@ -1,4 +1,4 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

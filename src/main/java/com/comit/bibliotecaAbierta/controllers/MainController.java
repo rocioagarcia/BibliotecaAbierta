@@ -13,9 +13,9 @@ public class MainController {
 		return "index";
 	}
 	
-	@GetMapping("/subir-texto")
-		public String subirTexto() {
-			return "uploadText";
-		}
+//	@GetMapping("/subir-texto")
+//		public String subirTexto() {
+//			return "uploadText";
+//		}
 	
 	}

@@ -3,10 +3,9 @@ package com.comit.bibliotecaAbierta.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.comit.bibliotecaAbierta.model.User;
+import com.comit.bibliotecaAbierta.model.Author;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface AuthorRepository extends JpaRepository<Author, Long> {
 
-	
 }

@@ -1,13 +1,12 @@
-package com.comit.bibliotecaAbierta.modelo;
+package com.comit.bibliotecaAbierta.model;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,16 +18,17 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class TextList implements Serializable{
+public class Review implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)	
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String description;
-	@ManyToMany	
-	private Set<Text> texts;
-
+	int clasification;
+	String commentary;
+	@ManyToOne
+	private User user;
+	@ManyToOne
+	private Text text;
 	
 }
