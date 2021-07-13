@@ -60,8 +60,8 @@
 		<div th:if="!${text.isEmpty()}">
 			<div th:each="text, iter : ${text}">
 				<div class="card mt-2">
-					<div class="card-body ">
-						<div class="" th:text="${iter.index + 1}"></div>
+					<div class="card-body row">
+						<div class="col-1" th:text="${iter.index + 1}"></div>
 						<div class="col-11">
 							<!--  
 				<div>
