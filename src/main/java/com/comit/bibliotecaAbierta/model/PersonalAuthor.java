@@ -5,32 +5,22 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @DiscriminatorValue("PERSONAL_AUTHOR")
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 public class PersonalAuthor extends Author implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	private String name;
-	private String lastName;
 	private String fechaNyM;
-	private String rol;
 	private String biography;
-	
-	@ManyToMany
-	private Set<Text> text;
 	
 }

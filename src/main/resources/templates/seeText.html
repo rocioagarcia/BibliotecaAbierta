@@ -85,7 +85,7 @@
 							<li><a class="dropdown-item " href="/miperfil">Mi perfil</a></li>
 							<li><a class="dropdown-item" href="/mislistas">Mis
 									listas</a></li>
-							<li><a class="dropdown-item" href="/subir-texto">Subir
+							<li><a class="dropdown-item" href="/texto/subir">Subir
 									texto</a></li>
 							<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
 						</ul>
@@ -96,56 +96,73 @@
 	</header>
 
 	<!-- MAIN -->
-	<main class="container-fluid container-ba">
+	<main class="
+		container-fluid container-ba">
 
 		<h1>Texto cargado.</h1>
-		<div th:object=${producto}>
-			<
-
-
-
-			<table>
-				<tr>
-					<th>Autor</th>
-					<th>Titulo</th>
-					<th>Titulo paralelo</th>
-					<th>Subtitulo</th>
-					<th>Variante del titulo</th>
-					<th>D.G.M.</th>
-					<th>Edición</th>
-					<th>Editor</th>
-					<th>Año de publicación</th>
-					<th>Extensión</th>
-					<th>Detalles</th>
-					<th>Notas</th>
-					<th>Temas</th>
-
-				</tr>
-				<tr>
-					<td th:text="${text.author}"></td>
-					<td th:text="${text.title}"></td>
-					<td th:text="${text.paralelTitle}"></td>
-					<td th:text="${text.alternativeTitle}"></td>
-					<td th:text="${text.subtitle}"></td>
-					<td th:text="${text.variantTitle}"></td>
-					<td th:text="${text.dgm}"></td>
-					<td th:text="${text.edition}"></td>
-					<td th:text="${text.editor}"></td>
-					<td th:text="${text.publicationDate}"></td>
-					<td th:text="${text.extention}"></td>
-					<td th:text="${text.details}"></td>
-					<td th:text="${text.notes}"></td>
-					<td th:text="${text.subjects}"></td>
-					<td th:text="${text.file}"></td>
-
-
-				</tr>
-			</table>
+		<div th:object=${text}>
+			<p>Autor:</p>
+			<ul>
+				<li th:text="${text.author}"></li>
+			</ul>
+			<p>Titulo propiamente dicho:</p>
+			<ul>
+				<li th:text="${text.title}"></li>
+			</ul>
+			<p>Titulo paralelo:</p>
+			<ul>
+				<li th:text="${text.paralelTitle}"></li>
+			</ul>
+			<p>Titulo alternativo:</p>
+			<ul>
+				<li th:text="${text.alternativeTitle}"></li>
+			</ul>
+			<p>Subtitulo:</p>
+			<ul>
+				<li th:text="${text.subtitle}"></li>
+			</ul>
+			<p>Variante del titulo:</p>
+			<ul>
+				<li th:text="${text.variantTitle}"></li>
+			</ul>
+			<p>D.G.M:</p>
+			<ul>
+				<li th:text="${text.dgm}"></li>
+			</ul>
+			<p>Edición:</p>
+			<ul>
+				<li th:text="${text.edition}"></li>
+			</ul>
+			<p>Editor:</p>
+			<ul>
+				<li th:text="${text.editor}"></li>
+			</ul>
+			<p>Año de publicación:</p>
+			<ul>
+				<li th:text="${text.publicationDate}"></li>
+			</ul>
+			<p>Extención:</p>
+			<ul>
+				<li th:text="${text.extention}"> p.</li>
+			</ul>
+			<p>Detalles:</p>
+			<ul>
+				<li th:text="${text.details}"></li>
+			</ul>
+			<p>Notas:</p>
+			<ul>
+				<li th:text="${text.notes}"></li>
+			</ul>
+			<p>Temas:</p>
+			<ul>
+				<li></li>
+			</ul>
 		</div>
 
 
 	</main>
+
 	<!-- FOOTER -->
-	<div class="footer-ba"></div>
+	<div class="footer-ba bottom"></div>
 </body>
 </html>

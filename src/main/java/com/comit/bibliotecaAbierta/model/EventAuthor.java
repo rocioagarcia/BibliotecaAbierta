@@ -26,8 +26,6 @@ public class EventAuthor extends Author implements Serializable{
 
 	private String name;
 	private String number;
-	private String place;
-	
-	@ManyToMany
-	private Set<Text> text;
+	private String jurisdiction;
+
 }

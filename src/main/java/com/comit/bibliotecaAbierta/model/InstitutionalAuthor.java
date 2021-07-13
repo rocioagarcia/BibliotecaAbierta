@@ -24,9 +24,7 @@ import lombok.ToString;
 public class InstitutionalAuthor extends Author implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private String jurisdiction;
 	private String name;
+	private String jurisdiction;
 	
-	@ManyToMany
-	private Set<Text> text;
 }

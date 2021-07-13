@@ -37,8 +37,7 @@ public class Text implements Serializable{
 	private String variantTitle;
 	private String dgm;
 	private String edition;
-	@ManyToMany
-	private Set<Editor> editor;
+	private String editor;
 	private String publicationDate;
 	private Integer extention;
 	private String details;

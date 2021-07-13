@@ -81,7 +81,7 @@
 							<li><a class="dropdown-item " href="/miperfil">Mi perfil</a></li>
 							<li><a class="dropdown-item" href="/mislistas">Mis
 									listas</a></li>
-							<li><a class="dropdown-item" href="/text/subir">Subir
+							<li><a class="dropdown-item" href="/texto/subir">Subir
 									texto</a></li>
 							<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
 						</ul>
@@ -96,15 +96,14 @@
 
 		<!-- FORM -->
 		<div>
-			<form class="row form-container" th:action="@{/text/crear}"
+			<form class="row form-container" th:action="@{/texto/crear}"
 				method="post" th:object=${text}>
 				<h2>Subir un nuevo texto.</h2>
 				<hr class="mt-4">
 				<div class="row">
 
 					<!-- AUTOR 
-					<h3>Autor</h3>
-					<div class="col-5 mt-3">
+
 						<label for="author" class="form-label">Autor</label> <select
 							multiple id="author" name="author"
 							th:field="*{author}" class="form-select col-4"
@@ -112,6 +111,16 @@
 							<option th:value="1">One</option>
 							<option th:value="2">Two</option>
 							<option th:value="3">Three</option>
+						</select>
+					-->
+
+					<h3>Autor</h3>
+					<div class="col-5 mt-3">
+						<label for="author" class="form-label">Autor</label> <select
+							class="form-select col-4" 0 multiple id="author" name="author"
+							aria-label="Default select example" th:field="*{author}">
+							<option th:each="author : ${authorList}" th:value="${author.id}"
+								th:utext="${author.name}" />
 						</select>
 						<div id="authorIndications" class="form-text">Para
 							seleccionar varios temas, mantenga apretada la tecla ctrl
@@ -125,15 +134,15 @@
 							type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo
 							de autor</button>
 						<ul class="dropdown-menu dropdown-menu-end">
-							<li><a class="dropdown-item" href="/subir-autor-personal">Personal</a></li>
+							<li><a class="dropdown-item" href="/autor/personal/subir">Personal</a></li>
 							<li><a class="dropdown-item"
-								href="/subir-autor-institucional">Entidad, organizacion,
-									institucion, etc.</a></li>
-							<li><a class="dropdown-item" href="/subir-autor-eventos">Conferencias,
-									reuniones, jornadas, etc.</a></li>
+								href="/autor/entidades-etc/subir">Entidades, organizaciones,
+									instituciones, etc.</a></li>
+							<li><a class="dropdown-item"
+								href="/autor/reuniones-etc/subir">Conferencias, reuniones,
+									jornadas, etc.</a></li>
 						</ul>
 					</div>
-					-->
 					<hr class="mt-4">
 
 					<!-- TITLE -->
@@ -181,13 +190,11 @@
 							type="text" class="form-control" id="edition" name="edition"
 							placeholder="Edicion" th:field="*{edition}" />
 					</div>
-					<!-- 
 					<div class="col-4 mt-3">
 						<label for="editor" class="form-label">Editor</label> <input
 							type="text" class="form-control" id="editor" name="editor"
 							placeholder="Editor" th:field="*{editor}" />
 					</div>
-					 -->
 					<div class="col-4 mt-3">
 						<label for="publicationDate" class="form-label">Año de
 							publicación</label> <input type="text" class="form-control"
@@ -243,17 +250,17 @@
 							agregar temas, ingrese aqui los necesarios, separados con coma </label> <input
 							type="text" class="form-control" id="newSubjects"
 							placeholder="Ej: BIOLOGIA, FISICA, QUIMICA" th:field:*{subjects} />
-					</div>
-					-->
+					</div> -->
 					<hr class="mt-4">
 					<div class="mb-3">
-						<label for="formFile" class="form-label">Seleccione el archivo</label> <input class="form-control" type="file"
-							id="file" name="file" th:field="*{file}">
+						<label for="formFile" class="form-label">Seleccione el
+							archivo</label> <input class="form-control" type="file" id="file"
+							name="file" th:field="*{file}">
 					</div>
 				</div>
 				<hr class="mt-4">
 				<div>
-					<button class="btn-color" type="submit">Enviar</button>
+					<button class="btn btn-submit" type="submit">Enviar</button>
 				</div>
 			</form>
 		</div>

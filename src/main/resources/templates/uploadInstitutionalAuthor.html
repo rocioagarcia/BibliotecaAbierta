@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,15 +25,12 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Bowlby One SC -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
 	rel="stylesheet">
-<!-- Bowlby One -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap"
 	rel="stylesheet">
-<!-- Montserrat -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
 	rel="stylesheet">
@@ -43,11 +39,11 @@
 <script src="https://use.fontawesome.com/2740052d05.js"></script>
 
 <!-- Title -->
-<title>Biblioteca Abierta</title>
+<title>Biblioteca Abierta | Subir Texto</title>
 </head>
 
-<body class="body">
-	<header class="sticky">
+<body>
+<header class="sticky">
 
 		<!-- TITULO DE LA PAGINA -->
 		<div class="title-ba text-stroke">
@@ -94,84 +90,35 @@
 			</div>
 		</nav>
 	</header>
-
+	
 	<!-- MAIN -->
-	<main class="
-		container-fluid container-ba">
-		<div class="p-3 text-center">
-			<h2 id="title">¡Bienvenido/a a Biblioteca Abierta!</h2>
-			<div class="mt-3 main-styles">
-				<p class="text-stroke">Todos los textos de dominio público que
-					puedas querer.</p>
-				<p class="text-stroke">Busca. Descarga. Gestiona.</p>
-			</div>
-		</div>
+	<main class="container-fluid container-ba">
 
-		<!-- SEARCH BAR -->
-		<div>
-			<form class="d-flex search-bar">
-				<input class="form-control me-2" type="search"
-					placeholder="Buscar por autor, titulo o materia"
-					aria-label="Search">
-				<button class="btn btn-color btn-search" type="submit" id="button">
-					Buscar</button>
-			</form>
-		</div>
-		<br>
-
-		<!-- CARDS -->
-		<div class="container">
-			<div class="row mt-2">
-				<div class="col">
-					<div class="card card-ba mt-2">
-						<div class="card-body text-center">
-							<p class="card-text card-letters">Crea y edita tu perfil</p>
-							<i class="fa fa-user-circle-o fa-4x card-icons align-self-center"
-								aria-hidden="true"></i>
-						</div>
-					</div>
+		<!-- FORM -->
+		<form class="row form-container"
+			th:action="@{/autor/entidades-etc/crear}" method="post"
+			th:object=${institutionalAuthor}>
+			<h2>Subir una nueva Entidad.</h2>
+			<hr class="mt-4">
+			<div class="row">
+				<div class="col-4 mt-3">
+					<label for="name" class="form-label">Jurisdicción</label> <input
+						type="text" class="form-control" id="jurisdiction"
+						name="jurisdiction" placeholder="Ej: Argentina"
+						th:field="*{jurisdiction}" />
 				</div>
-				<div class="col">
-					<div class="card card-ba mt-2">
-						<div class="card-body text-center">
-							<p class="card-text card-letters">Busca en el catalogo</p>
-							<i class="fa fa-search fa-4x card-icons align-self-center"
-								aria-hidden="true"></i>
-						</div>
-					</div>
+				<div class="col-4 mt-3">
+					<label for="name" class="form-label">Nombre de la Entidad</label> <input
+						type="text" class="form-control" id="name" name="name"
+						placeholder="Ej: Ministerio de Educación" th:field="*{name}" />
 				</div>
-				<div class="col">
-					<div class="card card-ba mt-2">
-						<div class="card-body text-center">
-							<p class="card-text card-letters">Descarga el texto</p>
-							<i class="fa fa-download fa-4x card-icons align-self-center"
-								aria-hidden="true"></i>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card card-ba mt-2">
-						<div class="card-body text-center">
-							<p class="card-text card-letters">Crea tus listas de textos</p>
-							<i class="fa fa-list fa-4x card-icons align-self-center"
-								aria-hidden="true"></i>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card card-ba mt-2">
-						<div class="card-body text-center">
-							<p class="card-text card-letters">Deja una reseña</p>
-							<i class="fa fa-star-half-o fa-4x card-icons align-self-center"
-								aria-hidden="true"></i>
-						</div>
-					</div>
+				<hr class="mt-4">
+				<div>
+					<button class="col-4 mt-3 btn-submit" type="submit">Enviar</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</main>
 
-	<!-- FOOTER -->
-	<div class="footer-ba"></div>
 </body>
 </html>
