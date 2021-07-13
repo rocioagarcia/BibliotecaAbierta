@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.comit.bibliotecaAbierta.model.Author;
+import com.comit.bibliotecaAbierta.model.Subject;
 //import com.comit.bibliotecaAbierta.model.Author;
 //import com.comit.bibliotecaAbierta.model.Subject;
 import com.comit.bibliotecaAbierta.model.Text;
@@ -41,8 +42,7 @@ public class TextController {
 	}
 
 	// A esto agregar despues:
-	// @RequestParam(value = "author") Set<Author> author,
-	// @RequestParam(value = "subjects") Set<Subject> subjects,
+	// @RequestParam(value = "subjects") Set<Subject> subjects
 
 	@PostMapping(value = "/crear")
 	public String createText(@RequestParam(value = "author") Set<Author> author, @RequestParam(value = "title") String title,
@@ -71,10 +71,16 @@ public class TextController {
 		text.setNotes(notes);
 //		text.setSubjects(subjects);
 		text.setFile(file);
-
-		text = textService.guardar(text);
+ 
+		text = textService.saveText(text);
 		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));
 		model.addAttribute("text", text);
 		return "seeText";
 	}
+	
+	@RequestMapping("/catalogo")
+	public String catalog(Model model) {
+		model.addAttribute("text", textService.listTexts());
+	return "catalog";
+}
 }

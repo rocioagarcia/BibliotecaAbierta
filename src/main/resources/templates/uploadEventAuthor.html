@@ -44,53 +44,8 @@
 
 <body>
 
-	<header class="sticky">
+<header th:insert="fragments/header.html :: header"> </header>	
 
-		<!-- TITULO DE LA PAGINA -->
-		<div class="title-ba text-stroke">
-			<img class="logo-image" th:src="@{/images/LOGO.png}" />
-		</div>
-
-		<!-- NAVBAR -->
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="container-fluid">
-				<!-- <a class="navbar-brand" href="#">Navbar</a> -->
-				<button class="navbar-toggler" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-					aria-controls="navbarNavDropdown" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavDropdown">
-					<ul class="navbar-nav">
-						<li class="nav-item"><a
-							class="nav-link active btn btn-color btn-navbar"
-							aria-current="page" href="/">Home</a></li>
-						<li class="nav-item"><a
-							class="nav-link btn btn-color btn-navbar" href="/catalogo">Catalogo</a></li>
-						<li class="nav-item"><a
-							class="nav-link btn btn-color btn-navbar" href="/quienessomos">Quienes
-								somos</a></li>
-					</ul>
-					<div class="nav-item dropdown me-2 ms-auto dropdown-menu-right">
-						<a
-							class="nav-link dropdown-toggle no-blue btn btn-color font-color-dropdown"
-							href="#" id="navbarDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> Perfil </a>
-						<ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"
-							aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item " href="/miperfil">Mi perfil</a></li>
-							<li><a class="dropdown-item" href="/mislistas">Mis
-									listas</a></li>
-							<li><a class="dropdown-item" href="/texto/subir">Subir
-									texto</a></li>
-							<li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</header>
 
 	<!-- MAIN -->
 	<main class="container-fluid container-ba">
@@ -124,5 +79,9 @@
 			</div>
 		</form>
 	</main>
+		<!-- FOOTER -->
+	<div class="footer-ba">
+	
+	</div>
 </body>
 </html>

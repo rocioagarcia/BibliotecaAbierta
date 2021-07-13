@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script defer
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+
+<!-- JavaScript -->
+<script defer th:src="@{/javascript/script.js}"></script>
+
+<!-- CSS -->
+<link th:href="@{/styles/style.css}" rel="stylesheet" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Bowlby One SC -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
+	rel="stylesheet">
+<!-- Bowlby One -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap"
+	rel="stylesheet">
+<!-- Montserrat -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
+	rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://use.fontawesome.com/2740052d05.js"></script>
+
+<!-- Title -->
+<title>Biblioteca Abierta | Catalogo</title>
+</head>
+<body>
+	<header th:insert="fragments/header.html :: header"> </header>
+
+	<!-- MAIN -->
+	<main class="
+		container-fluid container-ba">
+		<h2>Catalogo de textos</h2>
+		<hr class="mt-4">
+		
+
+		<div th:if="${text.isEmpty()}" class="alert alert-primary"
+			role="alert">No hay personas registradas.</div>
+		<div th:if="!${text.isEmpty()}">
+			<div th:each="text, iter : ${text}">
+				<div class="card mt-2">
+					<div class="card-body">
+						<div th:text="${iter.index + 1}"></div>
+						<!--  
+				<div>
+					Autor: <span th:text="${(text.author).toString}"></span>
+				</div>
+				-->
+						<div>
+							Titulo propiamente dicho: <span th:text="${text.title}"></span>
+						</div>
+						<div>
+							Titulo paralelo: <span th:text="${text.paralelTitle}"></span>
+						</div>
+						<div>
+							Titulo alternativo: <span th:text="${text.alternativeTitle}"></span>
+						</div>
+						<div>
+							Subtitulo: <span th:text="${text.subtitle}"></span>
+						</div>
+						<div>
+							Variante del titulo: <span th:text="${text.variantTitle}"></span>
+						</div>
+						<div>
+							D.G.M.: <span th:text="${text.dgm}"></span>
+						</div>
+						<div>
+							Edición: <span th:text="${text.edition}"></span>
+						</div>
+						<div>
+							Editor: <span th:text="${text.editor}"></span>
+						</div>
+						<div>
+							Año de publicación: <span th:text="${text.publicationDate}">
+							</span>
+						</div>
+						<div>
+							Extención:<span th:text="${text.extention}">p.</span>
+						</div>
+						<div>
+							Detalles: <span th:text="${text.details}"></span>
+						</div>
+						<div>
+							Notas:<span th:text="${text.notes}"></span>
+						</div>
+						<div>
+							Temas:<span></span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

@@ -1,7 +1,4 @@
 /*CSS PARA PARTES ENTERAS*/
-.body-ba {
-	color: #FFFFFF;
-}
 
 .sticky {
 	position: fixed;
@@ -70,6 +67,7 @@
 
 .btn-navbar {
 	margin-left: 6px;
+	border-color: purple;
 }
 
 .btn-color {

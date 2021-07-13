@@ -13,9 +13,10 @@ public class MainController {
 		return "index";
 	}
 	
-//	@GetMapping("/subir-texto")
-//		public String subirTexto() {
-//			return "uploadText";
-//		}
+	@GetMapping("/quienes-somos")
+		public String quienesSomos() {
+			return "quienesSomos";
+		}
+	
 	
 	}
