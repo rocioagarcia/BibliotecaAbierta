@@ -53,61 +53,50 @@
 		container-fluid container-ba">
 		<h2>Catalogo de textos</h2>
 		<hr class="mt-4">
-		
+
 
 		<div th:if="${text.isEmpty()}" class="alert alert-primary"
 			role="alert">No hay personas registradas.</div>
 		<div th:if="!${text.isEmpty()}">
 			<div th:each="text, iter : ${text}">
 				<div class="card mt-2">
-					<div class="card-body">
-						<div th:text="${iter.index + 1}"></div>
-						<!--  
+					<div class="card-body row">
+						<div class="col-1" th:text="${iter.index + 1}"></div>
+						<div class="col-11">
+							<!--  
 				<div>
 					Autor: <span th:text="${(text.author).toString}"></span>
 				</div>
 				-->
-						<div>
-							Titulo propiamente dicho: <span th:text="${text.title}"></span>
+							<div>
+								Titulo propiamente dicho: <span th:text="${text.title}"></span>
+							</div>
+							<div>
+								Titulo paralelo: <span th:text="${text.paralelTitle}"></span>
+							</div>
+							<div>
+								Titulo alternativo: <span th:text="${text.alternativeTitle}"></span>
+							</div>
+							<div>
+								Subtitulo: <span th:text="${text.subtitle}"></span>
+							</div>
+							<div>
+								Editor: <span th:text="${text.editor}"></span>
+							</div>
+							<div>
+								Año de publicación: <span th:text="${text.publicationDate}">
+								</span>
+							</div>
+							<div>
+								Extención:<span th:text="${text.extention}">p.</span>
+							</div>
+							<div>
+								Detalles: <span th:text="${text.details}"></span>
+							</div>
+							<div>
+								Temas:<span></span>
+							</div>
 						</div>
-						<div>
-							Titulo paralelo: <span th:text="${text.paralelTitle}"></span>
-						</div>
-						<div>
-							Titulo alternativo: <span th:text="${text.alternativeTitle}"></span>
-						</div>
-						<div>
-							Subtitulo: <span th:text="${text.subtitle}"></span>
-						</div>
-						<div>
-							Variante del titulo: <span th:text="${text.variantTitle}"></span>
-						</div>
-						<div>
-							D.G.M.: <span th:text="${text.dgm}"></span>
-						</div>
-						<div>
-							Edición: <span th:text="${text.edition}"></span>
-						</div>
-						<div>
-							Editor: <span th:text="${text.editor}"></span>
-						</div>
-						<div>
-							Año de publicación: <span th:text="${text.publicationDate}">
-							</span>
-						</div>
-						<div>
-							Extención:<span th:text="${text.extention}">p.</span>
-						</div>
-						<div>
-							Detalles: <span th:text="${text.details}"></span>
-						</div>
-						<div>
-							Notas:<span th:text="${text.notes}"></span>
-						</div>
-						<div>
-							Temas:<span></span>
-						</div>
-
 					</div>
 				</div>
 			</div>
