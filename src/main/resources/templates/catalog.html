@@ -56,12 +56,12 @@
 
 
 		<div th:if="${text.isEmpty()}" class="alert alert-primary"
-			role="alert">No hay personas registradas.</div>
+			role="alert">No hay textos cargados</div>
 		<div th:if="!${text.isEmpty()}">
 			<div th:each="text, iter : ${text}">
 				<div class="card mt-2">
 					<div class="card-body row">
-						<a th:href="@{/texo/{id} (id=${text.id})}">Ver detalles</a>
+						<a th:href="@{/texto/{id} (id=${text.id})}">Ver detalles</a>
 						<div class="col-11">
 							<!--  
 				<div>

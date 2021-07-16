@@ -40,10 +40,22 @@
 	<main class="
 		container-fluid container-ba">
 
-		<h1>Texto cargado.</h1>
-		<div th:object=${text}>
-			<div th:text="id: ${text.id}"></div>
-			<div th:text="title: ${text.title}"></div>
+		<h1 th:if="${text == null}" class="alert alert-primary" role="alert">No existe este texto.</h1>
+		<div th:if="!${text == null}">
+			<div th:object="${text}">
+				<h1 th:text="${text.title}"></h1>
+				<div th:text="${text.paralelTitle}"></div>
+				<div th:text="${text.alternativeTitle}"></div>
+				<div th:text="${text.subtitle}"></div>
+				<div th:text="${text.variantTitle}"></div>
+				<div th:text="${text.dgm}"></div>
+				<div th:text="${text.edition}"></div>
+				<div th:text="${text.editor}"></div>
+				<div th:text="${text.publicationDate}"></div>
+				<div th:text="${text.extention}"></div>
+				<div th:text="${text.details}"></div>
+				<div th:text="${text.notes}"></div>
+			</div>
 		</div>
 	</main>
 </body>

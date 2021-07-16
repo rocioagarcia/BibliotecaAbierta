@@ -1,7 +1,6 @@
 package com.comit.bibliotecaAbierta.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +22,8 @@ public class TextService {
 		return textRepository.saveAndFlush(text);
 	}
 
-	public Optional<Text> findText(Long id) {
-		return textRepository.findById(id);
+	public Text findText(Long id) {
+		return textRepository.findOneById(id);
 	}
 	
 	public List<Text> listTexts() {

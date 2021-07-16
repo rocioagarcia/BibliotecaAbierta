@@ -17,6 +17,4 @@ public class MainController {
 		public String quienesSomos() {
 			return "quienesSomos";
 		}
-	
-	
 	}

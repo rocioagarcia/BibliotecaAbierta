@@ -1,7 +1,6 @@
 package com.comit.bibliotecaAbierta.controllers;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.stereotype.Controller;
@@ -87,12 +86,20 @@ public class TextController {
 		return "catalog";
 	}
 	
-	//ESTO NO ESTARIA FUNCIONANDO
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public String singlePathVariable(@PathVariable("id") Long id, Model model) {
-		Optional<Text> text = textService.findText(id);
-		model.addAttribute("text", text);
+	public String seeText(Model model, @PathVariable(value = "id") Long id) {
+//		if ((textService.findText(id)) == null){
+//			return "error";
+//		} else {
+		model.addAttribute("text", textService.findText(id));
 		return "textById";
 	}
+	
+	//ESTO NO ESTARIA FUNCIONANDO
+//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//	public String singlePathVariable(@PathVariable(value= "id") Long id, Model model) {
+//		model.addAttribute("text", );
+//		return "textById";
+//	}
 	
 }
