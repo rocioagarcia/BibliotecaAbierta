@@ -3,30 +3,31 @@ package com.comit.bibliotecaAbierta.model;
 import java.io.Serializable;
 import java.util.Set;
 
+//import javax.persistence.JoinColumn ;
+//import javax.persistence.CollectionTable;
+//import javax.persistence.Column;
+//import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-
-import com.comit.bibliotecaAbierta.model.Author;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
- @Entity
- @Getter
- @Setter
- @NoArgsConstructor
- @ToString
-public class Text implements Serializable{
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+public class Text implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToMany
 	private Set<Author> author;
@@ -44,15 +45,9 @@ public class Text implements Serializable{
 	private String notes;
 	@ManyToMany
 	private Set<Subject> subjects;
-	@OneToMany
+	@ManyToMany
 	private Set<Review> review;
 	private String file;
-	
-	public Text(String title, String edition, String publicationDate, Integer extention) {
-		this.title = title;
-		this.edition = edition;
-		this.publicationDate = publicationDate;
-		this.extention = extention;
-	}
- }
- 
+
+
+}

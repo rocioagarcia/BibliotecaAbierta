@@ -54,24 +54,13 @@
 			<form class="row form-container" th:action="@{/texto/crear}"
 				method="post" th:object=${text}>
 				<h2>Subir un nuevo texto.</h2>
-				<hr class="mt-4">
+				<p class="required-red text-small left">Los campos marcados con <span class="asterisco-bold">*</span> son obligatorios</p>
+				<hr>
 				<div class="row">
-
-					<!-- AUTOR 
-
-						<label for="author" class="form-label">Autor</label> <select
-							multiple id="author" name="author"
-							th:field="*{author}" class="form-select col-4"
-							aria-label="Default select example" placeholder="Autor">
-							<option th:value="1">One</option>
-							<option th:value="2">Two</option>
-							<option th:value="3">Three</option>
-						</select>
-					-->
 
 					<h3>Autor</h3>
 					<div class="col-5 mt-3">
-						<label for="author" class="form-label">Autor</label> <select
+						<label for="author" class="form-label">Autor <span class="required-red">*</span></label> <select required
 							class="form-select col-4" 0 multiple id="author" name="author"
 							aria-label="Default select example" th:field="*{author}">
 							<option th:each="author : ${authorList}" th:value="${author.id}"
@@ -104,7 +93,7 @@
 					<h3>Títulos</h3>
 					<div class="col-4 mt-3">
 						<label for="title" class="form-label">Titulo propiamente
-							dicho</label> <input type="text" class="form-control" id="title"
+							dicho <span class="required-red">*</span></label> <input required type="text" class="form-control" id="title"
 							name="title" placeholder="Titulo propiamente dicho"
 							th:field="*{title}" />
 					</div>
@@ -152,7 +141,7 @@
 					</div>
 					<div class="col-4 mt-3">
 						<label for="publicationDate" class="form-label">Año de
-							publicación</label> <input type="text" class="form-control"
+							publicación <span class="required-red">*</span></label> <input required type="text" class="form-control"
 							id="publicationDate" name="publicationDate"
 							placeholder="Año de publicación" th:field="*{publicationDate}" />
 					</div>
@@ -161,8 +150,8 @@
 					<!-- EXTENTION, DETAILS -->
 					<h3>Extensión y detalles</h3>
 					<div class="col-4 mt-3">
-						<label for="extention" class="form-label">Extensión</label> <input
-							type="number" class="form-control" id="extention"
+						<label for="extention" class="form-label">Extensión <span class="required-red">*</span></label> <input
+							required type="number" class="form-control" id="extention"
 							name="extention" placeholder="Cantidad de páginas o volumenes"
 							th:field="*{extention}" />
 					</div>
@@ -186,42 +175,32 @@
 					</div>
 					<hr class="mt-4">
 
-					<!-- SUBJECTS
+					<!-- SUBJECTS -->
 					<h3>Temas</h3>
-					<div class="col-4 mt-3">
-						<label for="subjects" class="form-label">Temas</label> <select
-							id="subjects" name="subjects" multiple class="form-select"
-							aria-label="Default select example" th:field="*{subjects}">
-							<option th:value="1">One</option>
-							<option th:value="2">Two</option>
-							<option th:value="3">Three</option>
-						</select>
-						<div id="subjectsIndications" class="form-text">Para
-							seleccionar varios temas, mantenga apretada la tecla ctrl
-							mientras hace click en los temas que desea elegir</div>
-					</div>
+						<label for="newSubjects" class="form-label">Temas <span class="required-red">*</span></label>
 					<div class="col-8 mt-3">
-						<label for="newSubjects" class="form-label">Si necesita
-							agregar temas, ingrese aqui los necesarios, separados con coma </label> <input
+						<input required 
 							type="text" class="form-control" id="newSubjects"
-							placeholder="Ej: BIOLOGIA, FISICA, QUIMICA" th:field:*{subjects} />
-					</div>  -->
+							placeholder="Ej: BIOLOGIA,FISICA,QUIMICA" th:field="*{subjects}" />
+							<div id="subjectsIndications" class="form-text">Ingrese aqui los temas separados por coma, sin dejar espacio entre la coma y las palabras</div>
+					</div>
+					</div>  
 					<hr class="mt-4">
 					<div class="mb-3">
 						<label for="formFile" class="form-label">Seleccione el
 							archivo</label> <input class="form-control" type="file" id="file"
 							name="file" th:field="*{file}">
 					</div>
-				</div>
 				<hr class="mt-4">
 				<div>
 					<button class="btn btn-submit" type="submit">Enviar</button>
+				</div>
 				</div>
 			</form>
 		</div>
 	</main>
 
 	<!-- FOOTER -->
-	<div class="footer-ba"></div>
+	<div th:insert="fragments/footer.html :: footer"> </div>	
 </body>
 </html>

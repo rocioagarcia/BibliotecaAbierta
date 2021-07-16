@@ -108,6 +108,12 @@
 
 /*FORMS*/
 
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: red;
+}
+
 /*CSS DE DETALLES ESPECIFICOS*/
 .text-stroke {
 	-webkit-text-stroke-width: 1px;
@@ -116,4 +122,16 @@
 
 .funt {
 	font-family: 'Bowlby One', cursive;
+}
+
+.required-red{
+	color: red;
+}
+
+.text-small {
+	font-size: x-small ;
+}
+
+.asterisco-bold {
+	font-weight: bold;
 }

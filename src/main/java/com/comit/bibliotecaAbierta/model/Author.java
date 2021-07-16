@@ -25,6 +25,7 @@ public abstract class Author implements Serializable{
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
+	private String name;
 	
 	@ManyToMany
 	private Set<Text> text;
