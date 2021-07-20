@@ -17,4 +17,5 @@ import lombok.ToString;
 public class Admin extends User{
 	private static final long serialVersionUID = 1L;
 
+	private final String rol = "ADMIN";
 }

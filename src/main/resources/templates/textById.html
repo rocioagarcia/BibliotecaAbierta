@@ -42,19 +42,38 @@
 
 		<h1 th:if="${text == null}" class="alert alert-primary" role="alert">No existe este texto.</h1>
 		<div th:if="!${text == null}">
-			<div th:object="${text}">
-				<h1 th:text="${text.title}"></h1>
-				<div th:text="${text.paralelTitle}"></div>
-				<div th:text="${text.alternativeTitle}"></div>
-				<div th:text="${text.subtitle}"></div>
-				<div th:text="${text.variantTitle}"></div>
-				<div th:text="${text.dgm}"></div>
-				<div th:text="${text.edition}"></div>
-				<div th:text="${text.editor}"></div>
-				<div th:text="${text.publicationDate}"></div>
-				<div th:text="${text.extention}"></div>
-				<div th:text="${text.details}"></div>
-				<div th:text="${text.notes}"></div>
+			<div class="row">
+				<div class="col-6">
+					<div th:object="${text}">
+						<h1 th:text="${text.title}"></h1>
+						<div th:text="${text.paralelTitle}"></div>
+						<div th:text="${text.alternativeTitle}"></div>
+						<div th:text="${text.subtitle}"></div>
+						<div th:text="${text.variantTitle}"></div>
+						<div th:text="${text.dgm}"></div>
+						<div th:text="${text.edition}"></div>
+						<div th:text="${text.editor}"></div>
+						<div th:text="${text.publicationDate}"></div>
+						<div th:text="${text.extention}"></div>
+						<div th:text="${text.details}"></div>
+						<div th:text="${text.notes}"></div>
+					</div>
+				</div>
+				<div class="btn-group-vertical col-3" role="group" aria-label="Button group with nested dropdown">
+					<a type="button" th:href="@{/texto/editar/{id} (id=${text.id})}" class="btn btn-primary">Editar</a>
+					<a type="button" class="btn btn-primary">-</a>
+
+					<div class="btn-group" role="group">
+						<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle"
+							data-bs-toggle="dropdown" aria-expanded="false">
+							Dropdown
+						</button>
+						<ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							<li><a class="dropdown-item" href="#">Dropdown link</a></li>
+							<li><a class="dropdown-item" href="#">Dropdown link</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>

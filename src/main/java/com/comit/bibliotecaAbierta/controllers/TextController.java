@@ -32,6 +32,7 @@ public class TextController {
 		this.subjectService = subjectService;
 	}
 
+//CREAR TEXTO
 	@RequestMapping(value = "/subir", method = RequestMethod.GET)
 	public String uploadText(Model model) {
 		model.addAttribute("text", new Text());
@@ -50,7 +51,8 @@ public class TextController {
 			@RequestParam(value = "editor") String editor, @RequestParam(value = "edition") String edition,
 			@RequestParam(value = "publicationDate") String publicationDate,
 			@RequestParam(value = "extention") Integer extention, @RequestParam(value = "details") String details,
-			@RequestParam(value = "notes") String notes, @RequestParam(value = "subjects") String subjects, @RequestParam(value = "file") String file, Model model) {
+			@RequestParam(value = "notes") String notes, @RequestParam(value = "subjects") String subjects,
+			@RequestParam(value = "file") String file, Model model) {
 
 		Text text = new Text();
 		text.setAuthor(author);
@@ -67,7 +69,7 @@ public class TextController {
 		text.setDetails(details);
 		text.setNotes(notes);
 		text.setFile(file);
-	
+
 		String[] split = subjects.split(",");
 		Set<Subject> subjectCollection = subjectService.giveSubjects(split);
 
@@ -76,16 +78,16 @@ public class TextController {
 		text = textService.saveText(text);
 		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));
 		model.addAttribute("text", text);
-		return "seeText";
+		return "textById";
 	}
-	
 
+// CATALOGO Y VISTAS ESPECIFICAS
 	@RequestMapping(value = "/catalogo", method = RequestMethod.GET)
 	public String catalog(Model model) {
 		model.addAttribute("text", textService.listTexts());
 		return "catalog";
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String seeText(Model model, @PathVariable(value = "id") Long id) {
 //		if ((textService.findText(id)) == null){
@@ -94,12 +96,64 @@ public class TextController {
 		model.addAttribute("text", textService.findText(id));
 		return "textById";
 	}
-	
-	//ESTO NO ESTARIA FUNCIONANDO
-//	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//	public String singlePathVariable(@PathVariable(value= "id") Long id, Model model) {
-//		model.addAttribute("text", );
-//		return "textById";
-//	}
-	
+
+//	EDICION
+	@RequestMapping(value = "/editar/{id}", method = RequestMethod.GET)
+	public String editText(Model model, @PathVariable(value = "id") Long id) {
+		String subjects = "";
+		Text text = textService.findText(id);
+		model.addAttribute("text", text);
+		
+		Set<Subject> oldSubjects = text.getSubjects();
+		for (Subject subj : oldSubjects) {
+			subjects = subjects + "," + subj.getSubject();
+		}
+//		System.out.println(subjects);
+		model.addAttribute("subjects", subjects);
+		
+		List<Author> authorList = authorService.listAuthors();
+		model.addAttribute("authorList", authorList);
+		return "updateText";
+	}
+
+	// @RequestParam(value = "subjects") String subjects,
+	@PostMapping("/update/{id}")
+	public String updateText(@PathVariable(value = "id") Long id, @RequestParam(value = "author") Set<Author> author,
+			@RequestParam(value = "title") String title, @RequestParam(value = "paralelTitle") String paralelTitle,
+			@RequestParam(value = "alternativeTitle") String alternativeTitle,
+			@RequestParam(value = "subtitle") String subtitle,
+			@RequestParam(value = "variantTitle") String variantTitle, @RequestParam(value = "dgm") String dgm,
+			@RequestParam(value = "editor") String editor, @RequestParam(value = "edition") String edition,
+			@RequestParam(value = "publicationDate") String publicationDate,
+			@RequestParam(value = "extention") Integer extention, @RequestParam(value = "details") String details,
+			@RequestParam(value = "notes") String notes, @RequestParam(value = "file") String file, Text text,
+			Model model) {
+
+		text = textService.findText(id);
+
+		text.setAuthor(author);
+		text.setTitle(title);
+		text.setParalelTitle(paralelTitle);
+		text.setAlternativeTitle(alternativeTitle);
+		text.setSubtitle(subtitle);
+		text.setVariantTitle(variantTitle);
+		text.setDgm(dgm);
+		text.setEdition(edition);
+		text.setEditor(editor);
+		text.setPublicationDate(publicationDate);
+		text.setExtention(extention);
+		text.setDetails(details);
+		text.setNotes(notes);
+		text.setFile(file);
+
+//		String[] split = subjects.split(",");
+//		Set<Subject> subjectCollection = subjectService.giveSubjects(split);
+//
+//		text.setSubjects(subjectCollection);
+
+		text = textService.saveText(text);
+		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));
+		model.addAttribute("text", text);
+		return "textById";
+	}
 }

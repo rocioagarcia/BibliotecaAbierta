@@ -27,14 +27,15 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)	
 	private Long id;
-	protected String username;
-	protected String profilePic;
-	protected String biography;
-	protected String email;
+	private String username;
+	private String profilePic;
+	private String biography;
+	private String email;
+	private String rol = "USER";
 	@OneToMany	
-	protected Set<TextList> textList;
+	private Set<TextList> textList;
 	@OneToMany
-	protected Set<Review> review;
+	private Set<Review> review;
 	
 	
 	 

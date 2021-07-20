@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- JavaScript -->
+	<script defer th:src="@{/javascript/script.js}"></script>
+
+	<!-- CSS -->
+	<link th:href="@{/styles/style.css}" rel="stylesheet" />
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+	<!-- Icons -->
+	<script src="https://use.fontawesome.com/2740052d05.js"></script>
+
+	<!-- Title -->
+	<title>Biblioteca Abierta | Subir Texto</title>
+</head>
+
+<body>
+	<header th:insert="fragments/header.html :: header"> </header>
+
+
+	<!-- MAIN -->
+	<main class="container-fluid container-ba">
+
+		<!-- FORM -->
+		<form class="row form-container" th:action="@{/texto/update/{id} (id=${text.id})}" method="post"
+			th:object=${text}>
+			<div>
+			<h2>Editar texto</h2>
+			<p class="required-red text-small left">Los campos marcados con <span class="asterisco-bold">*</span>
+				son obligatorios</p>
+			<hr>
+			<div class="row">
+				<h3>Autor</h3>
+				<div class="col-5 mt-3">
+					<label for="author" class="form-label">Autor <span class="required-red">*</span></label> <select
+						required class="form-select col-4" 0 multiple id="author" name="author"
+						aria-label="Default select example" th:field="*{author}">
+						<option th:each="author : ${authorList}" th:value="${author.id}" th:utext="${author.name}" />
+					</select>
+					<div id="authorIndications" class="form-text">Para
+						seleccionar varios temas, mantenga apretada la tecla ctrl
+						mientras hace click en los temas que desea elegir</div>
+				</div>
+				<div class="col-5 mt-3">
+					<label for="newAuthor" class="form-label">Si necesita
+						ingresar autores nuevos, selecione: </label>
+					<button id="crearNuevoAutor" class="btn btn-outline-secondary btn-color dropdown-toggle"
+						type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo
+						de autor</button>
+					<ul class="dropdown-menu dropdown-menu-end">
+						<li><a class="dropdown-item" href="/autor/personal/subir">Personal</a></li>
+						<li><a class="dropdown-item" href="/autor/entidades-etc/subir">Entidades, organizaciones,
+								instituciones, etc.</a></li>
+						<li><a class="dropdown-item" href="/autor/reuniones-etc/subir">Conferencias, reuniones,
+								jornadas, etc.</a></li>
+					</ul>
+				</div>
+				<hr class="mt-4">
+
+				<!-- TITLE -->
+				<h3>Títulos</h3>
+				<div class="col-4 mt-3">
+					<label for="title" class="form-label">Titulo propiamente
+						dicho <span class="required-red">*</span></label> <input required type="text"
+						class="form-control" id="title" name="title" placeholder="Titulo propiamente dicho"
+						th:field="*{title}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="paralelTitle" class="form-label">Titulo
+						paralelo</label> <input type="text" class="form-control" id="paralelTitle" name="paralelTitle"
+						placeholder="Titulo paralelo" th:field="*{paralelTitle}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="alternativeTitle" class="form-label">Titulo
+						alternativo</label> <input type="text" class="form-control" id="alternativeTitle"
+						name="alternativeTitle" placeholder="Titulo alternativo" th:field="*{alternativeTitle}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="subtitulo" class="form-label">Otras titulos</label> <input type="text"
+						class="form-control" id="subtitule" name="subtitle" placeholder="Otros titulos"
+						th:field="*{subtitle}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="variantTitle" class="form-label">Variante del
+						titulo</label> <input type="text" class="form-control" id="variantTitle" name="variantTitle"
+						placeholder="Variante del título" th:field="*{variantTitle}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="dgm" class="form-label">D.G.M.</label> <input type="text" class="form-control" id="dgm"
+						name="dgm" placeholder="D.G.M." th:field="*{dgm}" />
+				</div>
+				<hr class="mt-4">
+
+				<!-- EDICION -->
+				<h3>Edición y publicación</h3>
+				<div class="col-4 mt-3">
+					<label for="edicion" class="form-label">Edicion</label> <input type="text" class="form-control"
+						id="edition" name="edition" placeholder="Edicion" th:field="*{edition}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="editor" class="form-label">Editor</label> <input type="text" class="form-control"
+						id="editor" name="editor" placeholder="Editor" th:field="*{editor}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="publicationDate" class="form-label">Año de
+						publicación <span class="required-red">*</span></label> <input required type="text"
+						class="form-control" id="publicationDate" name="publicationDate"
+						placeholder="Año de publicación" th:field="*{publicationDate}" />
+				</div>
+				<hr class="mt-4">
+
+				<!-- EXTENTION, DETAILS -->
+				<h3>Extensión y detalles</h3>
+				<div class="col-4 mt-3">
+					<label for="extention" class="form-label">Extensión <span class="required-red">*</span></label>
+					<input required type="number" class="form-control" id="extention" name="extention"
+						placeholder="Cantidad de páginas o volumenes" th:field="*{extention}" />
+				</div>
+				<div class="col-4 mt-3">
+					<label for="details" class="form-label">Detalles y
+						caracteristicas</label> <input type="text" class="form-control" id="details" name="details"
+						placeholder="Detalles y caracteristicas" th:field="*{details}" />
+				</div>
+				<hr class="mt-4">
+
+				<!-- NOTES -->
+				<h3>Notas</h3>
+				<div class="col-4 mt-3">
+					<label for="notes" class="form-label">Notas</label>
+					<textarea type="text" class="form-control" id="notes" name="notes" placeholder="Notas"
+						th:field="*{notes}"></textarea>
+					<div id="notesIndications" class="form-text">Ingrese todas
+						las notas que interprete necesarias, separadas por un punto y a
+						parte.</div>
+				</div>
+				<hr class="mt-4">
+
+				<!-- SUBJECTS -->
+				<h3>Temas</h3>
+				<label for="subjectString" class="form-label">Temas <span class="required-red">*</span></label>
+				<div class="col-8 mt-3">
+					<input type="text" class="form-control" id="subjectString" placeholder="Ej: BIOLOGIA,FISICA,QUIMICA"
+						th:value="*{subjects}" />
+					<div id="subjectsIndications" class="form-text">Ingrese aqui los temas separados por coma, sin
+						dejar espacio entre la coma y las palabras</div>
+				</div>
+			</div>
+			<hr class="mt-4">
+			<div class="mb-3">
+				<label for="formFile" class="form-label">Seleccione el
+					archivo</label> <input class="form-control" type="file" id="file" name="file" th:field="*{file}">
+			</div>
+			<hr class="mt-4">
+			<div>
+				<button class="btn btn-submit" type="submit">Enviar</button>
+			</div>
+		</form>
+	</main>
+
+	<!-- FOOTER -->
+	<div th:insert="fragments/footer.html :: footer"> </div>
+</body>
+
+</html>
