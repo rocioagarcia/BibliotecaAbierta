@@ -156,10 +156,10 @@
 
 				<!-- SUBJECTS -->
 				<h3>Temas</h3>
-				<label for="subjectString" class="form-label">Temas <span class="required-red">*</span></label>
+				<label for="subjectsForShow" class="form-label">Temas <span class="required-red">*</span></label>
 				<div class="col-8 mt-3">
-					<input type="text" class="form-control" id="subjectString" placeholder="Ej: BIOLOGIA,FISICA,QUIMICA"
-						th:value="*{subjects}" />
+					<input type="text" class="form-control" id="subjectsForShow" name="subjectsForShow" placeholder="Ej: BIOLOGIA,FISICA,QUIMICA"
+						th:value="${subjectsForShow}" />
 					<div id="subjectsIndications" class="form-text">Ingrese aqui los temas separados por coma, sin
 						dejar espacio entre la coma y las palabras</div>
 				</div>

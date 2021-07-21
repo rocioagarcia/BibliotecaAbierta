@@ -103,20 +103,19 @@ public class TextController {
 		String subjects = "";
 		Text text = textService.findText(id);
 		model.addAttribute("text", text);
-		
+
 		Set<Subject> oldSubjects = text.getSubjects();
 		for (Subject subj : oldSubjects) {
 			subjects = subjects + "," + subj.getSubject();
 		}
-//		System.out.println(subjects);
-		model.addAttribute("subjects", subjects);
-		
+		model.addAttribute("subjectsForShow", subjects);
+
 		List<Author> authorList = authorService.listAuthors();
 		model.addAttribute("authorList", authorList);
 		return "updateText";
 	}
 
-	// @RequestParam(value = "subjects") String subjects,
+	//
 	@PostMapping("/update/{id}")
 	public String updateText(@PathVariable(value = "id") Long id, @RequestParam(value = "author") Set<Author> author,
 			@RequestParam(value = "title") String title, @RequestParam(value = "paralelTitle") String paralelTitle,
@@ -126,8 +125,8 @@ public class TextController {
 			@RequestParam(value = "editor") String editor, @RequestParam(value = "edition") String edition,
 			@RequestParam(value = "publicationDate") String publicationDate,
 			@RequestParam(value = "extention") Integer extention, @RequestParam(value = "details") String details,
-			@RequestParam(value = "notes") String notes, @RequestParam(value = "file") String file, Text text,
-			Model model) {
+			@RequestParam(value = "notes") String notes, @RequestParam(value = "file") String file,
+			@RequestParam(value = "subjectsForShow") String subjects, Text text, Model model) {
 
 		text = textService.findText(id);
 
@@ -146,10 +145,10 @@ public class TextController {
 		text.setNotes(notes);
 		text.setFile(file);
 
-//		String[] split = subjects.split(",");
-//		Set<Subject> subjectCollection = subjectService.giveSubjects(split);
-//
-//		text.setSubjects(subjectCollection);
+		String[] split = subjects.split(",");
+		Set<Subject> subjectCollection = subjectService.giveSubjects(split);
+
+		text.setSubjects(subjectCollection);
 
 		text = textService.saveText(text);
 		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));

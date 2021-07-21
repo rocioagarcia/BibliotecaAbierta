@@ -47,7 +47,11 @@ public class SubjectService {
 
 		for (String s : split) {
 			subject = findOneBySubject(s);
-			subjectCollection.add(subject);
+			if(subject == null) {
+				subject = new Subject(s);
+				subjectRepository.save(subject);
+			}
+		subjectCollection.add(subject);
 		}
 
 		return subjectCollection;
