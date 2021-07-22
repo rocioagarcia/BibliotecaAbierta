@@ -25,14 +25,14 @@ public class Subject implements Serializable{
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)	
 	private Long id;
-	private String subject;
+	private String name;
 	
 	@ManyToMany
 	private Set<Text> texts;
 	
 	
 	public Subject (String subject) {
-		this.subject = subject;
+		this.name = subject;
 	}
 	
 

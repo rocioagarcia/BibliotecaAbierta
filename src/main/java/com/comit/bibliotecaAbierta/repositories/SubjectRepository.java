@@ -9,5 +9,5 @@ import com.comit.bibliotecaAbierta.model.Subject;
 @Repository
 public interface SubjectRepository extends JpaRepository<Subject, Long> {
 
-	Subject findOneBySubject(String subject);
+	Subject findOneByName(String name);
 }

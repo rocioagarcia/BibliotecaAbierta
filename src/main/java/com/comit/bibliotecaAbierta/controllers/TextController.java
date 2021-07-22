@@ -106,7 +106,7 @@ public class TextController {
 
 		Set<Subject> oldSubjects = text.getSubjects();
 		for (Subject subj : oldSubjects) {
-			subjects = subjects + "," + subj.getSubject();
+			subjects = subjects + "," + subj.getName();
 		}
 		model.addAttribute("subjectsForShow", subjects);
 
@@ -115,7 +115,6 @@ public class TextController {
 		return "updateText";
 	}
 
-	//
 	@PostMapping("/update/{id}")
 	public String updateText(@PathVariable(value = "id") Long id, @RequestParam(value = "author") Set<Author> author,
 			@RequestParam(value = "title") String title, @RequestParam(value = "paralelTitle") String paralelTitle,
@@ -151,8 +150,16 @@ public class TextController {
 		text.setSubjects(subjectCollection);
 
 		text = textService.saveText(text);
-		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));
+		System.out.println(String.format("Se editó el text con id: %s ", text.getId()));
 		model.addAttribute("text", text);
 		return "textById";
+	}
+	
+	// BORRAR
+	@RequestMapping(value = "/borrar/{id}", method = RequestMethod.GET)
+	public String deleteText(@PathVariable(value = "id") Long id, Model model) {
+	    Text text = textService.findText(id);
+	    textService.deleteById(text);
+	    return "redirect:/";
 	}
 }

@@ -29,4 +29,8 @@ public class TextService {
 	public List<Text> listTexts() {
 		return textRepository.findAll();
 	}
+	
+	public void deleteById(Text text) {
+		textRepository.deleteById(text.getId());
+		}
 }

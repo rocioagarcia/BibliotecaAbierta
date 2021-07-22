@@ -29,16 +29,16 @@ public class SubjectService {
 		return subjectRepository.findAll();
 	}
 
-	public Subject findOneBySubject(String s) {
-		Subject subject = subjectRepository.findOneBySubject(s);
+	public Subject findOneByName(String s) {
+		Subject subject = subjectRepository.findOneByName(s);
 
-		if (subject == null) {
-			Subject sub = new Subject(s);
-			saveSubject(sub);
-			return sub;
-		} else {
+//		if (subject == null) {
+//			Subject sub = new Subject(s);
+//			saveSubject(sub);
+//			return sub;
+//		} else {
 			return subject;
-		}
+//		}
 	}
 
 	public Set<Subject> giveSubjects(String[] split) {
@@ -46,7 +46,7 @@ public class SubjectService {
 		Subject subject;
 
 		for (String s : split) {
-			subject = findOneBySubject(s);
+			subject = findOneByName(s);
 			if(subject == null) {
 				subject = new Subject(s);
 				subjectRepository.save(subject);
