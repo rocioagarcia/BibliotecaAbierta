@@ -1,5 +1,7 @@
 package com.comit.bibliotecaAbierta.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +32,9 @@ public class AuthorController {
 	}
 
 	@PostMapping(value = "/personal/crear")
-	public String createPersonalAuthor(@RequestParam(value = "name") String name, @RequestParam(value = "fechaNyM") String fechaNyM, @RequestParam(value = "biography") String biography, Model model) {
+	public String createPersonalAuthor(@RequestParam(value = "name") String name,
+			@RequestParam(value = "fechaNyM") String fechaNyM, @RequestParam(value = "biography") String biography,
+			HttpServletRequest request, Model model) {
 
 		PersonalAuthor personalAuthor = new PersonalAuthor();
 		personalAuthor.setName(name);
@@ -40,10 +44,10 @@ public class AuthorController {
 		personalAuthor = authorService.guardarPersonal(personalAuthor);
 		System.out.println(String.format("Se creo el autor con id: %s ", personalAuthor.getId()));
 		model.addAttribute("personalAuthor", personalAuthor);
-		return "redirect:/texto/subir";
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
 	}
-	
-	
+
 	// UPLOAD INSTITUTIONAL AUTHOR
 	@RequestMapping(value = "/entidades-etc/subir", method = RequestMethod.GET)
 	public String uploadInstitutionalAuthor(Model model) {
@@ -74,7 +78,8 @@ public class AuthorController {
 
 	@PostMapping(value = "/reuniones-etc/crear")
 	public String createEventAuthor(@RequestParam(value = "name") String name,
-			@RequestParam(value = "number") String number, @RequestParam(value = "place") String jurisdiction, Model model) {
+			@RequestParam(value = "number") String number, @RequestParam(value = "place") String jurisdiction,
+			Model model) {
 
 		EventAuthor eventAuthor = new EventAuthor();
 
