@@ -31,15 +31,15 @@ public class SubjectService {
 
 	public Subject findOneByName(String s) {
 		Subject subject = subjectRepository.findOneByName(s);
-
 //		if (subject == null) {
 //			Subject sub = new Subject(s);
 //			saveSubject(sub);
 //			return sub;
 //		} else {
-			return subject;
 //		}
+		return subject;
 	}
+
 
 	public Set<Subject> giveSubjects(String[] split) {
 		Set<Subject> subjectCollection = new HashSet<Subject>();

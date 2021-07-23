@@ -44,6 +44,6 @@ public class AuthorService {
 	}
 
 	public List<Author> listAuthors() {
-		return authorRepository.findAll();
+		return authorRepository.findAllByOrderByNameAsc();
 	}
 }
