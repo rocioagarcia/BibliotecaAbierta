@@ -26,15 +26,21 @@ public class AuthorController {
 
 	// UPLOAD PERSONAL AUTHOR
 	@RequestMapping(value = "/personal/subir", method = RequestMethod.GET)
-	public String uploadPersonalAuthor(Model model) {
+	public String uploadPersonalAuthor(Model model, HttpServletRequest request) {
 		model.addAttribute("personalAuthor", new PersonalAuthor());
+
+		String contextPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+				+ request.getContextPath();
+		String referer = request.getHeader("Referer");
+		model.addAttribute("redirect", referer.replace(contextPath, ""));
+
 		return "uploadPersonalAuthor2";
 	}
 
 	@PostMapping(value = "/personal/crear")
 	public String createPersonalAuthor(@RequestParam(value = "name") String name,
 			@RequestParam(value = "fechaNyM") String fechaNyM, @RequestParam(value = "biography") String biography,
-			HttpServletRequest request, Model model) {
+			@RequestParam(value = "redirect") String redirect, Model model) {
 
 		PersonalAuthor personalAuthor = new PersonalAuthor();
 		personalAuthor.setName(name);
@@ -44,8 +50,7 @@ public class AuthorController {
 		personalAuthor = authorService.guardarPersonal(personalAuthor);
 		System.out.println(String.format("Se creo el autor con id: %s ", personalAuthor.getId()));
 		model.addAttribute("personalAuthor", personalAuthor);
-		String referer = request.getHeader("Referer");
-		return "redirect:" + referer;
+		return "redirect:" + redirect;
 	}
 
 	// UPLOAD INSTITUTIONAL AUTHOR
