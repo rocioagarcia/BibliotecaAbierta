@@ -42,42 +42,35 @@
 
 		<h1 th:if="${text == null}" class="alert alert-primary" role="alert">No existe este texto.</h1>
 		<div th:if="${text != null}">
-			<div class="row">
-				<div class="col-10">
-					<div th:object="${text}">
-						<div th:each="author: ${text.author}">
-							<div th:text="${author.name}"></div>
-						</div>
-						<h1 th:text="${text.title}"></h1>
-						<div th:text="${text.paralelTitle}"></div>
-						<div th:text="${text.alternativeTitle}"></div>
-						<div th:text="${text.subtitle}"></div>
-						<div th:text="${text.variantTitle}"></div>
-						<div th:text="${text.dgm}"></div>
-						<div th:text="${text.edition}"></div>
-						<div th:text="${text.editor}"></div>
-						<div th:text="${text.publicationDate}"></div>
-						<div th:text="${text.extention}"></div>
-						<div th:text="${text.details}"></div>
-						<div th:text="${text.notes}"></div>
-						<div th:each="s : ${text.subjects}">
-							<div th:text="${s.name}"></div>
-						</div>
+			<div class="row" th:object="${text}">
+				<div class="col-3 textImage">
+					<img name="photo" value="photo" th:src="@{${text.photo}}" class="img-fluid" />
+				</div>
+				<div class="col-8">
+					<div th:each="author: ${text.author}">
+						<div th:text="${author.name}"></div>
+					</div>
+					<h1 th:text="${text.title}"></h1>
+					<div th:text="${text.paralelTitle}"></div>
+					<div th:text="${text.alternativeTitle}"></div>
+					<div th:text="${text.subtitle}"></div>
+					<div th:text="${text.variantTitle}"></div>
+					<div th:text="${text.dgm}"></div>
+					<div th:text="${text.edition}"></div>
+					<div th:text="${text.editor}"></div>
+					<div th:text="${text.publicationDate}"></div>
+					<div th:text="${text.extention}"></div>
+					<div th:text="${text.details}"></div>
+					<div th:text="${text.notes}"></div>
+					<div th:each="s : ${text.subjects}">
+						<div th:text="${s.name}"></div>
 					</div>
 				</div>
-				<div class="btn-group-vertical col-2" role="group" aria-label="Button group with nested dropdown">
-					<a type="button" th:href="@{/texto/editar/{id} (id=${text.id})}" class="btn btn-color">Editar</a>
-					<a type="button" th:href="@{/texto/borrar/{id} (id=${text.id})}" class="btn btn-color">Eliminar</a>
-
-					<div class="btn-group" role="group">
-						<button id="btnGroupDrop1" type="button" class="btn btn-color dropdown-toggle"
-							data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-							<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-							<li><a class="dropdown-item" href="#">Dropdown link</a></li>
-						</ul>
+				<div class="col-1">
+					<div class="btn-group-vertical align-middle" role="group" aria-label="Button group">
+						<a th:href="@{${text.file}}" class="btn btn-color btn-size">Descargar</a>
+						<a th:href="@{/texto/editar/{id} (id=${text.id})}" class="btn btn-color btn-size">Editar</a>
+						<a th:href="@{/texto/borrar/{id} (id=${text.id})}" class="btn btn-color btn-size">Eliminar</a>
 					</div>
 				</div>
 			</div>
@@ -86,4 +79,5 @@
 	<!-- FOOTER -->
 	<footer th:insert="fragments/footer.html :: footer"> </footer>
 </body>
+
 </html>

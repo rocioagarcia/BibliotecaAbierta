@@ -44,7 +44,8 @@ public class TextController {
 
 	@PostMapping(value = "/crear")
 	public String createText(@RequestParam(value = "author") Set<Author> author,
-			@RequestParam(value = "title") String title, @RequestParam(value = "paralelTitle") String paralelTitle,
+			@RequestParam(value = "title") String title, @RequestParam(value = "photo") String photo,
+			@RequestParam(value = "paralelTitle") String paralelTitle,
 			@RequestParam(value = "alternativeTitle") String alternativeTitle,
 			@RequestParam(value = "subtitle") String subtitle,
 			@RequestParam(value = "variantTitle") String variantTitle, @RequestParam(value = "dgm") String dgm,
@@ -56,6 +57,7 @@ public class TextController {
 
 		Text text = new Text();
 		text.setAuthor(author);
+		text.setPhoto(photo);
 		text.setTitle(title);
 		text.setParalelTitle(paralelTitle);
 		text.setAlternativeTitle(alternativeTitle);
@@ -117,7 +119,8 @@ public class TextController {
 
 	@PostMapping("/update/{id}")
 	public String updateText(@PathVariable(value = "id") Long id, @RequestParam(value = "author") Set<Author> author,
-			@RequestParam(value = "title") String title, @RequestParam(value = "paralelTitle") String paralelTitle,
+			@RequestParam(value = "title") String title, @RequestParam(value = "photo") String photo,
+			@RequestParam(value = "paralelTitle") String paralelTitle,
 			@RequestParam(value = "alternativeTitle") String alternativeTitle,
 			@RequestParam(value = "subtitle") String subtitle,
 			@RequestParam(value = "variantTitle") String variantTitle, @RequestParam(value = "dgm") String dgm,
@@ -130,6 +133,7 @@ public class TextController {
 		text = textService.findText(id);
 
 		text.setAuthor(author);
+		text.setPhoto(photo);
 		text.setTitle(title);
 		text.setParalelTitle(paralelTitle);
 		text.setAlternativeTitle(alternativeTitle);
@@ -152,14 +156,14 @@ public class TextController {
 		text = textService.saveText(text);
 		System.out.println(String.format("Se editó el text con id: %s ", text.getId()));
 		model.addAttribute("text", text);
-		return "textById";
+		return "redirect:/texto/" + text.getId();
 	}
-	
+
 	// BORRAR
 	@RequestMapping(value = "/borrar/{id}", method = RequestMethod.GET)
 	public String deleteText(@PathVariable(value = "id") Long id, Model model) {
-	    Text text = textService.findText(id);
-	    textService.deleteById(text);
-	    return "redirect:/";
+		Text text = textService.findText(id);
+		textService.deleteById(text);
+		return "redirect:/";
 	}
 }

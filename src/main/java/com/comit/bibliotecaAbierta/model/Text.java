@@ -3,7 +3,7 @@ package com.comit.bibliotecaAbierta.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 //import javax.persistence.JoinColumn ;
 //import javax.persistence.CollectionTable;
 //import javax.persistence.Column;
@@ -44,11 +44,12 @@ public class Text implements Serializable {
 	private Integer extention;
 	private String details;
 	private String notes;
+	private String photo;
+	private String file;
 	@ManyToMany
 	private Set<Subject> subjects;
 	@ManyToMany
 	private Set<Review> review;
-	private String file;
 
 
 }
