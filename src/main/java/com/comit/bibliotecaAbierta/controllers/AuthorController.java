@@ -55,14 +55,19 @@ public class AuthorController {
 
 	// UPLOAD INSTITUTIONAL AUTHOR
 	@RequestMapping(value = "/entidades-etc/subir", method = RequestMethod.GET)
-	public String uploadInstitutionalAuthor(Model model) {
+	public String uploadInstitutionalAuthor(Model model, HttpServletRequest request) {
 		model.addAttribute("institutionalAuthor", new InstitutionalAuthor());
+
+		String contextPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+				+ request.getContextPath();
+		String referer = request.getHeader("Referer");
+		model.addAttribute("redirect", referer.replace(contextPath, ""));
 		return "uploadInstitutionalAuthor";
 	}
 
 	@PostMapping(value = "/entidades-etc/crear")
 	public String createInstitutionalAuthor(@RequestParam(value = "jurisdiction") String jurisdiction,
-			@RequestParam(value = "name") String name, Model model) {
+			@RequestParam(value = "name") String name, @RequestParam(value = "redirect") String redirect, Model model) {
 
 		InstitutionalAuthor institutionalAuthor = new InstitutionalAuthor();
 		institutionalAuthor.setJurisdiction(jurisdiction);
@@ -71,20 +76,25 @@ public class AuthorController {
 		institutionalAuthor = authorService.guardarInstitutional(institutionalAuthor);
 		System.out.println(String.format("Se creo el autor con id: %s ", institutionalAuthor.getId()));
 		model.addAttribute("institutionalAuthor", institutionalAuthor);
-		return "redirect:/texto/subir";
+		return "redirect:" + redirect;
 	}
 
 	// UPLOAD EVENT AUTHOR
 	@RequestMapping(value = "/reuniones-etc/subir", method = RequestMethod.GET)
-	public String uploadEventAuthor(Model model) {
+	public String uploadEventAuthor(Model model, HttpServletRequest request) {
 		model.addAttribute("eventAuthor", new EventAuthor());
+
+		String contextPath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+				+ request.getContextPath();
+		String referer = request.getHeader("Referer");
+		model.addAttribute("redirect", referer.replace(contextPath, ""));
 		return "uploadEventAuthor";
 	}
 
 	@PostMapping(value = "/reuniones-etc/crear")
 	public String createEventAuthor(@RequestParam(value = "name") String name,
 			@RequestParam(value = "number") String number, @RequestParam(value = "place") String jurisdiction,
-			Model model) {
+			@RequestParam(value = "redirect") String redirect, Model model) {
 
 		EventAuthor eventAuthor = new EventAuthor();
 
@@ -95,6 +105,6 @@ public class AuthorController {
 		eventAuthor = authorService.guardarEvent(eventAuthor);
 		System.out.println(String.format("Se creo el autor con id: %s ", eventAuthor.getId()));
 		model.addAttribute("eventAuthor", eventAuthor);
-		return "redirect:/texto/subir";
+		return "redirect:" + redirect;
 	}
 }
