@@ -80,7 +80,7 @@ public class TextController {
 		text = textService.saveText(text);
 		System.out.println(String.format("Se creo el text con id: %s ", text.getId()));
 		model.addAttribute("text", text);
-		return "textById";
+		return "redirect:/texto/" + text.getId();
 	}
 
 	// BUSCAR

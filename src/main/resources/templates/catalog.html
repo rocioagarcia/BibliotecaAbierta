@@ -48,55 +48,28 @@
 
 		<div th:if="${text.isEmpty()}" class="alert alert-primary" role="alert">No hay textos cargados</div>
 		<div th:if="!${text.isEmpty()}">
-			<div th:each="text, iter : ${text}">
-				<div class="card mt-2">
-					<div class="card-body row">
-						<a th:href="@{/texto/{id} (id=${text.id})}">Ver detalles</a>
-						<div class="col-11">
+			<div class="row">
+				<div th:each="text, iter : ${text}" class="text-center col-4">
+					<a th:href="@{/texto/{id} (id=${text.id})}" class="card mt-2 card-catalog">
+						<div class="card-body">
 
-							<div> Autor(es): <div th:each="author : ${text.author}">
-									<span th:text="${author.name}"></span>
-								</div>
+							<div th:each="author : ${text.author}">
+								<span th:text="${author.name}"></span>
 							</div>
-							<br>
-							<div>
-								Titulo propiamente dicho: <span th:text="${text.title}"></span>
+							<h3 th:text="${text.title}">
+							</h3>
+							<div class="textImageCatalog text-center">
+								<img name="photo" value="photo" th:src="@{${text.photo}}" class="img-fluid" />
 							</div>
-							<div>
-								Titulo paralelo: <span th:text="${text.paralelTitle}"></span>
-							</div>
-							<div>
-								Titulo alternativo: <span th:text="${text.alternativeTitle}"></span>
-							</div>
-							<div>
-								Subtitulo: <span th:text="${text.subtitle}"></span>
-							</div>
-							<div>
-								Editor: <span th:text="${text.editor}"></span>
-							</div>
-							<div>
-								Año de publicación: <span th:text="${text.publicationDate}">
-								</span>
-							</div>
-							<div>
-								Extención:<span th:text="${text.extention}">p.</span>
-							</div>
-							<div>
-								Detalles: <span th:text="${text.details}"></span>
-							</div>
-							<div>
-								Temas: <div th:each="s : ${text.subjects}">
-									<span th:text="${s.name}"></span>
-								</div>
-							</div>
+							<p th:text="${text.subtitle}"></p>
 						</div>
-					</div>
+					</a>
 				</div>
 			</div>
 		</div>
 	</main>
-		<!-- FOOTER -->
-		<footer th:insert="fragments/footer.html :: footer"> </footer>
+	<!-- FOOTER -->
+	<footer th:insert="fragments/footer.html :: footer"> </footer>
 </body>
 
 </html>
