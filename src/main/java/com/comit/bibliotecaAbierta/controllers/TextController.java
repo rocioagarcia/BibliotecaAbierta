@@ -83,6 +83,15 @@ public class TextController {
 		return "textById";
 	}
 
+	// BUSCAR
+	@PostMapping(value = "/busqueda")
+	public String searchText(@RequestParam(value = "search") String search, Model model) {
+		List<Text> searchResults = textService.searchBar(search);
+		System.out.println(searchResults);
+		model.addAttribute("text", searchResults);
+		return "catalog";
+	}
+	
 // CATALOGO Y VISTAS ESPECIFICAS
 	@RequestMapping(value = "/catalogo", method = RequestMethod.GET)
 	public String catalog(Model model) {

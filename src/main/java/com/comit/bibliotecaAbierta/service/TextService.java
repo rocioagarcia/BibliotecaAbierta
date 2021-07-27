@@ -33,4 +33,9 @@ public class TextService {
 	public void deleteById(Text text) {
 		textRepository.deleteById(text.getId());
 		}
+	
+	public List<Text> searchBar (String search) {
+		System.out.println(search);
+		return textRepository.findAllByMatchers(search);
+	}
 }
