@@ -35,7 +35,7 @@ public class TextService {
 		}
 	
 	public List<Text> searchBar (String search) {
-		System.out.println(search);
+		System.out.println("La palabra buscada es" + search);
 		return textRepository.findAllByMatchers(search);
 	}
 }

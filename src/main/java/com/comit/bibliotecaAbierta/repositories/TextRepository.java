@@ -15,7 +15,7 @@ public interface TextRepository extends JpaRepository<Text, Long> {
 	List<Text> findAllByOrderByTitleAsc();
 	
 
-	@Query("FROM Text t JOIN t.author a JOIN t.subjects s WHERE ((t.title like '%:matcher%' OR t.title is null) "
-			+ "AND (a.name like '%:matcher%' OR a.name is null)" + "AND (s.name like '%:matcher%' OR s.name is null))")
+	@Query(value = "SELECT * FROM Text t JOIN t.author a JOIN t.subjects s WHERE ((t.title like '%matcher%' OR t.title is null) "
+			+ "OR (a.name like '%matcher%' OR a.name is null)" + "OR (s.name like '%matcher%' OR s.name is null))", nativeQuery = true)
 	List<Text> findAllByMatchers(@Param("matcher") String matcher);
 }

@@ -87,7 +87,7 @@ public class TextController {
 	@PostMapping(value = "/busqueda")
 	public String searchText(@RequestParam(value = "search") String search, Model model) {
 		List<Text> searchResults = textService.searchBar(search);
-		System.out.println(searchResults);
+		System.out.println("La lista de textos compatibles tiene:" + searchResults);
 		model.addAttribute("text", searchResults);
 		return "catalog";
 	}
