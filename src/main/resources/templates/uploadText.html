@@ -42,8 +42,8 @@
 
 		<!-- FORM -->
 		<div>
-				<h2>Subir un nuevo texto.</h2>
 			<form class="row form-container" th:action="@{/texto/crear}" method="post" th:object=${text}>
+				<h2>Subir un nuevo texto.</h2>
 				<p class="required-red text-small left">Los campos marcados con <span class="asterisco-bold">*</span>
 					son obligatorios</p>
 				<hr>
@@ -57,7 +57,7 @@
 								th:utext="${author.name}" />
 						</select>
 						<div id="authorIndications" class="form-text">Para
-							seleccionar varios temas, mantenga apretada la tecla ctrl
+							seleccionar varios autores, mantenga apretada la tecla ctrl
 							mientras hace click en los temas que desea elegir</div>
 					</div>
 					<div class="col-5 mt-3">
@@ -66,7 +66,7 @@
 						<button id="crearNuevoAutor" class="btn btn-outline-secondary btn-color dropdown-toggle"
 							type="button" data-bs-toggle="dropdown" aria-expanded="false">Tipo
 							de autor</button>
-						<ul class="dropdown-menu dropdown-menu-end">
+						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="/autor/personal/subir">Personal</a></li>
 							<li><a class="dropdown-item" href="/autor/entidades-etc/subir">Entidades, organizaciones,
 									instituciones, etc.</a></li>

@@ -44,7 +44,7 @@
 		<div th:if="${text != null}">
 			<div th:object="${text}">
 				<div class="card mt-2">
-					<div class="card-body row">
+					<div class="card-body card-background row">
 						<div class="col-3 textImage">
 							<img name="photo" value="photo" th:src="@{${text.photo}}" class="img-fluid" />
 						</div>
@@ -53,21 +53,78 @@
 								<div th:text="${author.name}"></div>
 							</div>
 							<h1 th:text="${text.title}"></h1>
-							<div th:text="${text.paralelTitle}"></div>
-							<div th:text="${text.alternativeTitle}"></div>
-							<div th:text="${text.subtitle}"></div>
-							<div th:text="${text.variantTitle}"></div>
-							<div th:text="${text.dgm}"></div>
-							<div th:text="${text.edition}"></div>
-							<div th:text="${text.editor}"></div>
-							<div th:text="${text.publicationDate}"></div>
-							<div th:text="${text.extention}"></div>
-							<div th:text="${text.details}"></div>
-							<div th:text="${text.notes}"></div>
-							<div th:each="s : ${text.subjects}">
-								<div th:text="${s.name}"></div>
+							
+							<div>
+							<h4 class="mt-3"> Otros titulos </h4>
+							<hr class="mt-2">
+								<div class="qsfont" th:if="${text.paralelTitle != ''} ">
+									<p><span th:text="${text.paralelTitle}"></span></p>
+								</div>
+								<div class="qsfont" th:if="${text.alternativeTitle != ''} ">
+									<p><span th:text="${text.alternativeTitle}"></span></p>
+								</div>
+								<div class="qsfont" th:if="${text.subtitle != ''} ">
+									<p><span th:text="${text.subtitle}"></span></p>
+								</div>
+								<div class="qsfont" th:if="${text.variantTitle != ''} ">
+									<p><span th:text="${text.variantTitle}"></span></p>
+								</div>
+							</div>
+
+							
+							<div>
+								<h4 class="mt-3"> Edición </h4>
+								<hr class="mt-2">
+								<div class="row">
+									<div class="col-3 qsfont" th:if="${text.edition != ''}">
+										<p> Edición: <span th:text="${text.edition}"></span></p>
+									</div>
+									<div class="col-4 qsfont" th:if="${text.editor != ''}">
+										<p><span th:text="${text.editor}"></span></p>
+									</div>
+									<div class="col-5 qsfont" th:if="${text.publicationDate != ''}">
+										<p>Año de publicacion: <span
+												th:text="${text.publicationDate}"></span>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div>
+								<h4 class="mt-3"> Extensión y detalles </h4>
+								<hr class="mt-2">
+								<div class="row">
+									<div class="col-6 qsfont" th:if="${text.extention != ''}">
+										<p> Cant. de páginas: <span th:text="${text.extention}"></span>
+										</p>
+									</div>
+									<div class="col-6 qsfont" th:if="${text.details != ''}">
+										<p> Detalles: <span th:text="${text.details}"></span>
+										</p>
+									</div>
+								</div>
+								<div class="qsfont" th:if="${text.dgm != ''}">
+									<p> Formato del archivo: <span th:text="${text.dgm}"></span></p>
+								</div>
+							</div>
+							
+							<div>
+								<h4 class="mt-3"> Notas </h4>
+								<hr class="mt-2">
+								<div class="qsfont" th:if="${text.notes != ''}">
+									<p th:text="${text.notes}"></p>
+								</div>
+							</div>
+							
+							<div>
+								<h4 class="mt-3"> Temas </h4>
+								<hr class="mt-2">
+								<ul class="list-group list-group-horizontal-sm qsfont" th:each="s : ${text.subjects}">
+									<li class="list-group-item" th:text="${s.name}"></li>
+								</ul>
 							</div>
 						</div>
+
 						<div class="col-2">
 							<div class="btn-group-vertical" role="group" aria-label="Button group">
 								<a th:href="@{${text.file}}" class="btn btn-color btn-size">Descargar</a>
@@ -77,34 +134,36 @@
 									data-bs-target="#deleteModal">
 									Eliminar
 								</button>
-
 							</div>
 						</div>
+					</div>
 
-						<!-- Modal -->
-						<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
-							aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">¿De verdad desea eliminar este
-											texto?</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
-											aria-label="Close"></button>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-color btn-secondary"
-											data-bs-dismiss="modal">No, cancelar</button>
-										<a th:href="@{/texto/borrar/{id} (id=${text.id})}" class="btn btn-danger">Si,
-											eliminar</a>
-									</div>
+					<!-- Modal -->
+					<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">¿De verdad desea eliminar
+										este
+										texto?</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-color btn-secondary"
+										data-bs-dismiss="modal">No,
+										cancelar</button>
+									<a th:href="@{/texto/borrar/{id} (id=${text.id})}" class="btn btn-danger">Si,
+										eliminar</a>
 								</div>
 							</div>
 						</div>
-						<!-- End of Modal -->
 					</div>
+					<!-- End of Modal -->
 				</div>
 			</div>
+		</div>
 		</div>
 	</main>
 	<!-- FOOTER -->

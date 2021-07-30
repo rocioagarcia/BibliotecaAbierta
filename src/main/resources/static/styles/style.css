@@ -31,7 +31,7 @@ body{
 
 main {
 	font-family: 'Montserrat', sans-serif;
-		padding: 10%;
+		padding: 8%;
 }
 
 .container-ba {
@@ -75,6 +75,10 @@ a:hover, a:focus {
 .h2, h2 {
 	color: #4D6960;
 	font-family: 'Bowlby One SC', cursive;
+}
+
+.h3, h3 {
+	color: #4D6960;
 }
 
 .h4, h4 {
@@ -129,7 +133,7 @@ a:hover, a:focus {
 .card-catalog {
 	background-color: #E9F9F4 !important;
 	height: 95%;
-	width: 95%;
+	width: 90%;
 	padding: 1%;
 }
 
