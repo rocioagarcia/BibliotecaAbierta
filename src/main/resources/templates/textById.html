@@ -73,10 +73,35 @@
 								<a th:href="@{${text.file}}" class="btn btn-color btn-size">Descargar</a>
 								<a th:href="@{/texto/editar/{id} (id=${text.id})}"
 									class="btn btn-color btn-size">Editar</a>
-								<a th:href="@{/texto/borrar/{id} (id=${text.id})}"
-									class="btn btn-color btn-size">Eliminar</a>
+								<button type="button" class="btn btn-color" data-bs-toggle="modal"
+									data-bs-target="#deleteModal">
+									Eliminar
+								</button>
+
 							</div>
 						</div>
+
+						<!-- Modal -->
+						<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">¿De verdad desea eliminar este
+											texto?</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-color btn-secondary"
+											data-bs-dismiss="modal">No, cancelar</button>
+										<a th:href="@{/texto/borrar/{id} (id=${text.id})}" class="btn btn-danger">Si,
+											eliminar</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End of Modal -->
 					</div>
 				</div>
 			</div>

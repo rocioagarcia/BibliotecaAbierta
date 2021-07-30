@@ -52,14 +52,16 @@
 				<div th:each="text, iter : ${text}" class="text-center col-4">
 					<a th:href="@{/texto/{id} (id=${text.id})}" class="card mt-2 card-catalog">
 						<div class="card-body">
-
-							<div th:each="author : ${text.author}">
-								<span th:text="${author.name}"></span>
+							<div class="card-title">
+								<div th:each="author : ${text.author}">
+									<span th:text="${author.name}"></span>
+								</div>
+								<h3 th:text="${text.title}">
+								</h3>
 							</div>
-							<h3 th:text="${text.title}">
-							</h3>
-							<div class="textImageCatalog text-center">
-								<img name="photo" value="photo" th:src="@{${text.photo}}" class="img-fluid" />
+							<div class="text-center">
+								<img name="photo" value="photo" th:src="@{${text.photo}}"
+									class="img-fluid textImageCatalog" />
 							</div>
 							<p th:text="${text.subtitle}"></p>
 						</div>

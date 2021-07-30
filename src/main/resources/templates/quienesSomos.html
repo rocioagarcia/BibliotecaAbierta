@@ -2,74 +2,130 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
 
-<!-- Bootstrap -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
-<script defer
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-	crossorigin="anonymous"></script>
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
 
-<!-- JavaScript -->
-<script defer th:src="@{/javascript/script.js}"></script>
+	<!-- JavaScript -->
+	<script defer th:src="@{/javascript/script.js}"></script>
 
-<!-- CSS -->
-<link th:href="@{/styles/style.css}" rel="stylesheet" />
+	<!-- CSS -->
+	<link th:href="@{/styles/style.css}" rel="stylesheet" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Bowlby One SC -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap"
-	rel="stylesheet">
-<!-- Bowlby One -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap"
-	rel="stylesheet">
-<!-- Montserrat -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
-	rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<!-- Bowlby One SC -->
+	<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+	<!-- Bowlby One -->
+	<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&display=swap" rel="stylesheet">
+	<!-- Montserrat -->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-<!-- Icons -->
-<script src="https://use.fontawesome.com/2740052d05.js"></script>
+	<!-- Icons -->
+	<script src="https://use.fontawesome.com/2740052d05.js"></script>
 
-<!-- Title -->
-<title>Biblioteca Abierta</title>
+	<!-- Title -->
+	<title>Biblioteca Abierta</title>
 </head>
 
 <body>
 	<header th:insert="fragments/header.html :: header"> </header>
 
 	<!-- MAIN -->
-	<main class="
-		container-fluid container-ba">
-		<div class="p-3 text-center">
-			<h2>Quienes somos</h2>
-			<div>Biblioteca Abierta es un proyecto que pretende brindar a
-				la comunidad la posibilidad de descargar y gestionar archivos de
-				texto de dominio público</div>
-			<div>Lorem ipsum dolor sit amet consectetur adipiscing elit
-				posuere blandit odio, litora neque volutpat vehicula curae luctus
-				proin primis commodo, aptent placerat nulla penatibus mi magnis
-				donec cum malesuada. Diam ad justo felis iaculis pharetra dapibus
-				nunc habitant primis, himenaeos nisl non potenti ac cras sem metus
-				et, tempus elementum sodales vitae nisi netus eget congue. Laoreet
-				malesuada lacus senectus libero egestas sodales ultricies nullam
-				augue condimentum, pellentesque vitae quam nunc leo class platea
-				orci habitasse tincidunt ut, tortor accumsan himenaeos non duis
-				tellus scelerisque luctus quisque.</div>
+	<main class="container-fluid container-ba">
+		<div class="p-3">
+			<div class="card card-background">
+				<div class="card-body">
+					<h2>Sobre Biblioteca Abierta</h2>
+					<hr class="mt-2">
+					<h4 class="mt-5">¿Qué es Biblioteca Abierta?</h4>
+					<p class="mt-2">Biblioteca Abierta es un proyecto que pretende brindar a
+						la comunidad la posibilidad de descargar y gestionar archivos de
+						texto de dominio público. </p>
+					<hr class="mt-1">
+
+					<h4 class="mt-5">¿Cómo surgió Biblioteca Abierta?</h4>
+					<p class="mt-2">Biblioteca Abierta surgió bajo el marco del curso Desarrollo de Aplicaciones
+						Web con Java, brindado por ComunidadIT, durante el año 2021, y sigue desarrollandose en la
+						actualidad.</p>
+					<hr class="mt-1">
+
+
+					<h4 class="mt-5">¿Qué puedo hacer Biblioteca Abierta?</h4>
+					<ul class="mt-2 list-group list-group-flush">
+						<div class="mt-2">Sin tener una cuenta:</div>
+						<li class="list-group-item d-flex justify-content-between align-items-start">
+							<div class="ms-2 me-auto">
+								<div class="fw-bold">Descargar</div>
+								<div class="qsfont">Accede a los links de descarga de los textos, para poder leerlos
+									desde la comodidad
+									de tu dispositivo favorito.</div>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between align-items-start">
+							<div class="ms-2 me-auto">
+								<div class="fw-bold">Buscar</div>
+								<div class="qsfont">Ofrecemos tanto un catálogo completo con los textos subidos, como un
+									buscador por
+									titulo, autor o materia.</div>
+							</div>
+						</li>
+						<div class="mt-2">Al crear una cuenta:</div>
+						<li class="list-group-item d-flex justify-content-between align-items-start">
+							<div class="ms-2 me-auto">
+								<div class="fw-bold">Listar textos</div>
+								<div class="qsfont">Crea listas personalizadas para organizar tus lecturas.</div>
+							</div>
+						</li>
+						<li class="list-group-item d-flex justify-content-between align-items-start">
+							<div class="ms-2 me-auto">
+								<div class="fw-bold">Opinar</div>
+								<div class="qsfont">Comparti tu opinion con otros lectores y lectoras dejando uaa
+									calificación y
+									redactando una reseña.</div>
+							</div>
+						</li>
+					</ul>
+					<hr class="mt-2">
+					
+					
+					<h4 class="mt-5">¿Tengo que pagar para acceder a los textos?</h4>
+					<p class="mt-2">No. Biblioteca Abierta adhiere al principio de acceso abierto a la información. Es
+						por eso que no necesitas hacerte una cuenta para poder descargar los textos, y en ningun momento
+						se te solicitara que abones dinero para acceder a los servicios que brinda la aplicación.</p>
+					<p>Los textos que encontrarás en esta página, además, son de dominio público.
+						<hr class="mt-1">
+					
+					
+					<h4 class="mt-5">¿Qué es el dominio público?</h4>
+					<p class="mt-2">El dominio público engloba el patrimonio intelectual que está libre de toda
+						exclusividad en su acceso y utilización. Incluye elementos que no tienen restricciones de
+						derecho de autor establecidas, así como obras literarias, artísticas o científicas (lo que
+						incluye
+						aplicaciones informáticas) en las que ha expirado el plazo de protección del derecho de autor.
+					</p>
+					<p>Segun el Convenio de Berna, firmado por la mayoría de los países, todas las obras intelectuales
+						quedan bajo el dominio de los derechos de autor hasta haber pasado 50 años de la muerte de su
+						autor,
+						pero se reconoce el derecho de los paises signatarios a ampliar el plazo de la protección.</p>
+					<p>El dominio público implica el uso gratuito de los contenidos. Las obras pueden ser explotadas por
+						cualquier persona, siempre que se respeten los derechos morales de sus autores.</p>
+						<hr class="mt-1">
+				</div>
+			</div>
+		</div>
 	</main>
 
 	<!-- FOOTER -->
 	<div class="footer-ba"></div>
 </body>
+
 </html>
